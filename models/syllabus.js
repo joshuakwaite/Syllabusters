@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var syllabusSchema = new Schema ({
+var courseSchema = new Schema ({
 
     name: String,
     lessons: [{
@@ -31,4 +31,4 @@ var syllabusSchema = new Schema ({
 
 });
 
-module.exports = mongoose.model("Syllabus", syllabusSchema);
+module.exports = mongoose.model("Course", courseSchema);

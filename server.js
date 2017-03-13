@@ -8,17 +8,21 @@ var morgan = require("morgan");
 // var config = require("./config");
 var port = process.env.PORT || 8000;
 
-app.use(express.static(path.join(__dirname)));
+app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(morgan("dev"));
 
-app.use(bodyParser.json());
 
-// app.use("/auth", require("./routes/auth-routes"));
+
+app.use("/user", require("./routes/user-route"));
 
 // app.use("/api", expressJwt({secret: config.secret}));
 
-// app.use("/api/courses", require("./routes/routes"));
+app.use("/course", require("./routes/course-route"));
+
+app.use("/admin", require("./routes/admin-route"));
 
 mongoose.connect("mongodb://localhost/syllabuster", function (err) {
     if (err) {

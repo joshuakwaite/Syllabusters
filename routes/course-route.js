@@ -1,40 +1,39 @@
 "use strict";
-var express = require ("express");
-var Course = require("../models/courseModel");
+var express = require("express");
+var Course = require("../models/syllabus");
 var courseRoute = express.Router();
 
 
+courseRoute.route("/")
+    .get(function (req, res) {
+        Course.find(function (err, course) {
+            if (err)
+                return res.status(500).send(err);
+            res.send(course);
+        });
+    })
 
-courseRoute.post("/", function (req, res) {
-    var course = new Course(req.body);
+    .post(function (req, res) {
+        var course = new Course(req.body);
 
-    course.save(function (err, course){
-        if (err)
-            return res.status(500).send;
-        console.log(course);
-        res.send(course);
+        course.save(function (err) {
+            if (err)
+                return res.status(500).send(err);
+            res.send(course);
+        });
+
+
     });
-
-    courseRoute.route("/")
-        .get(function (req, res) {
-            Course.find(function (err, course) {
-                if (err)
-                    return res.status(500).send(err);
-                res.send(course);
-            });
-        })
-
-
-
-});
 
 courseRoute.delete("/:courseId", function (req, res) {
     Course.findOneAndRemove({_id: req.params.courseId},
         function (err, course) {
             if (err)
                 return res.status(500).send(err);
-            res.send({message: "Successfully deleted your course",
-                success: true});
+            res.send({
+                message: "Successfully deleted your course",
+                success: true
+            });
         })
 
 });
@@ -49,7 +48,7 @@ courseRoute.put("/:courseId", function (req, res) {
 });
 
 courseRoute.get("/:courseId", function (req, res) {
-    Course.findOneById(req.params.courseId,
+    Course.findById(req.params.courseId,
         req.body, function (err, course) {
             if (err)
                 return res.status(500).send(err);
