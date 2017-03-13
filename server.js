@@ -9,13 +9,12 @@ var config = require("./config");
 var port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, "public")));
-
 app.use(morgan("dev"));
 
-app.use("/auth/change-password", expressJwt({secret: config.secret}));
+app.use("/user", require("./routes/user-route"));
 
+app.use("/auth/change-password", expressJwt({secret: config.secret}));
 app.use("/auth", require("./routes/auth-routes"));
 
 app.use("/api", expressJwt({secret: config.secret}));
