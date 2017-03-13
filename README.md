@@ -1,1 +1,1 @@
-This is a group project for Joh, Gabe, and Aaron.
+This is a group project for Josh, Gabe, and Aaron.
