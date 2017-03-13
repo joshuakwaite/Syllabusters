@@ -4,23 +4,23 @@ var path = require("path");
 var mongoose = require("mongoose");
 var bodyParser = require ("body-parser");
 var morgan = require("morgan");
-// var expressJwt = require("express-jwt");
-// var config = require("./config");
+var config = require("./config");
+var expressJwt = require("express-jwt");
 var port = process.env.PORT || 8000;
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(morgan("dev"));
 
 app.use(bodyParser.json());
 
-// app.use("/auth", require("./routes/auth-routes"));
+app.use("/auth", require("./routes/auth-routes"));
 
-// app.use("/api", expressJwt({secret: config.secret}));
+app.use("/api", expressJwt({secret: config.secret}));
 
 // app.use("/api/courses", require("./routes/routes"));
 
-mongoose.connect("mongodb://localhost/syllabuster", function (err) {
+mongoose.connect(config.database, function (err) {
     if (err) {
         throw err;
     }

@@ -3,7 +3,10 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema ({
 
-    name: String,
+    name: {
+        type: String,
+        require: true
+    },
     username: {
         type: String,
         require: true,

@@ -27,7 +27,13 @@ var syllabusSchema = new Schema ({
     weeknotes: [{
         weekNumber: Number,
         note: String
-    }]
+    }],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
+
 
 });
 
