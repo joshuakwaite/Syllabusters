@@ -1,0 +1,36 @@
+<html ng-app="scotchApp">
+    <head>
+
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="script.js"></script>
+      <link rel="stylesheet" href="style.css".
+    </head>
+
+    <body ng-controller="mainController">
+    <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">The Syllabuster</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#routeOne">Route One</a></li>
+                    <li><a href="#routeTwo">Route Two</a></li>
+                    <li><a href="#routeThree">Route Three</a></li>
+                    <li><a href="#routeFour">Route Four</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+
+
+    <div id="main">
+        
+        <div ng-view></div>
+
+    </div>
