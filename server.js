@@ -8,16 +8,9 @@ var morgan = require("morgan");
 // var config = require("./config");
 var port = process.env.PORT || 8000;
 
-<<<<<<< HEAD
-=======
 app.use(bodyParser.json());
-
->>>>>>> 277c801f8e97d0a567f0bec7be1b98b3e0eac04d
 app.use(express.static(path.join(__dirname, "public")));
-
 app.use(morgan("dev"));
-
-
 
 app.use("/user", require("./routes/user-route"));
 
