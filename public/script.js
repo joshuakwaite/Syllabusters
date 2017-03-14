@@ -8,16 +8,22 @@ scotchApp.config(function ($routeProvider) {
             controller: 'mainController'
         })
 
-        .when('/dayView', {
-            templateUrl: 'pages/dayView.html',
-            controller: 'dayController'
+        .when('/syllabus', {
+            templateUrl: 'pages/syllabus.html',
+            controller: 'syllabusController'
         })
 
         .when('/weekView', {
             templateUrl: 'pages/weekView.html',
             controller: 'weekController'
         })
+
+        .when('/input', {
+            templateUrl: 'pages/input.html',
+            controller: "inputController"
+        });
 });
+
 
 
 
