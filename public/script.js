@@ -1,9 +1,9 @@
-var scotchApp = angular.module('scotchApp', ['ngRoute']);
+var scotchApp = angular.module('scotchApp', ['ngRoute', 'scotchApp.Auth']);
 
 scotchApp.config(function ($routeProvider) {
     $routeProvider
 
-        .when('/', {
+        .when('/home', {
             templateUrl: 'pages/home.html',
             controller: 'mainController'
         })
@@ -44,3 +44,12 @@ scotchApp.controller('signupController', function ($scope) {
     $scope.message = "Signup below";
 });
 
+
+scotchApp.directive("navbar", ["UserService", function (UserService) {
+    return {
+        templateUrl: "navbar/navbar.html",
+        link: function (scope) {
+            scope.userService = UserService;
+        }
+    }
+}]);
