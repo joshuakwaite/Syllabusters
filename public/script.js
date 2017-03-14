@@ -1,31 +1,32 @@
-var scotchApp = angular.module('scotchApp', ['ngRoute']);
+var scotchApp = angular.module('scotchApp', ['ngRoute', 'scotchApp.Auth']);
 
 scotchApp.config(function ($routeProvider) {
     $routeProvider
 
-        .when('/', {
-        templateUrl: 'pages/home.html',
-        controller: 'mainController'
-    })
+        .when('/home', {
+            templateUrl: 'pages/home.html',
+            controller: 'mainController'
+        })
 
-    .when('/dayView', {
-        templateUrl: 'pages/dayView.html',
-        controller: 'dayController'
-    })
-    
-    .when('/weekView', {
-        templateUrl: 'pages/weekView.html',
-        controller: 'weekController'
-    })
-    
-        .when('/login', {
-        templateUrl: 'pages/login.html',
-        controller: 'loginController'
-    })
-    
-        .when('/signup', {
-        templateUrl: 'pages/signup.html',
-        controller: 'signupController'
-    });
+        .when('/dayView', {
+            templateUrl: 'pages/dayView.html',
+            controller: 'dayController'
+        })
+
+        .when('/weekView', {
+            templateUrl: 'pages/weekView.html',
+            controller: 'weekController'
+        })
 });
+
+
+
+scotchApp.directive("navbar", ["UserService", function (UserService) {
+    return {
+        templateUrl: "navbar/navbar.html",
+        link: function (scope) {
+            scope.userService = UserService;
+        }
+    }
+}]);
 
