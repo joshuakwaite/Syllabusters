@@ -3,7 +3,10 @@ var Schema = mongoose.Schema;
 
 var courseSchema = new Schema ({
 
-    name: String,
+    name: [{
+        type: String,
+        required: true
+    }],
     lessons: [{
         name: String,
         link: String,
