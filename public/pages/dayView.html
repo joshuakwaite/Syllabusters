@@ -1,7 +1,22 @@
-<div>
+<h1>Create Your syllabus!</h1>
 
-    <h1>Day View</h1>
+<input type="text" id="courseName" ng-model="syllabus.courseName">
 
-    <p>{{ message }}</p>
+<input type="date" id="startDate" ng-model="syllabus.startDate">
 
-</div>
+<input type="date" id="endDate" ng-model="syllabus.endDate">
+
+<input type="text" id="teacher" ng-model="syllabus.teacher">
+
+<input type="number" id="week" ng-model="syllabus.week">
+
+<input type="text" id="lessonName" ng-model="lesson.name">
+<input type="url" id="lessonUrl" ng-model="lesson.url">
+<textarea name="" id="lessonDescription" cols="30" rows="10" placeholder="Explain your lesson here"></textarea>
+
+<input type="text" id="warmup" ng-model="syllabus.warmup">
+
+<input type="text" id="projects" ng-model="syllabus.project">
+
+<input type="text" id="tests" ng-model="syllabus.test">
+
