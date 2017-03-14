@@ -4,36 +4,31 @@ scotchApp.config(function ($routeProvider) {
     $routeProvider
 
         .when('/', {
-        templateUrl: 'pages/home.html',
-        controller: 'mainController'
-    })
+            templateUrl: 'pages/home.html',
+            controller: 'mainController'
+        })
 
-    .when('/dayView', {
-        templateUrl: 'pages/dayView.html',
-        controller: 'dayController'
-    })
-    
-    .when('/weekView', {
-        templateUrl: 'pages/weekView.html',
-        controller: 'weekController'
-    })
-    
-        .when('/login', {
-        templateUrl: 'pages/login.html',
-        controller: 'loginController'
-    })
-    
-        .when('/signup', {
-        templateUrl: 'pages/signup.html',
-        controller: 'signupController'
-    });
+        .when('/syllabus', {
+            templateUrl: 'pages/syllabus.html',
+            controller: 'syllabusController'
+        })
+
+        .when('/weekView', {
+            templateUrl: 'pages/weekView.html',
+            controller: 'weekController'
+        })
+
+        .when('/input', {
+            templateUrl: 'pages/input.html',
+            controller: "inputController"
+        });
 });
 
 scotchApp.controller('mainController', function ($scope) {
     $scope.message = "Something cool to say about the Syllabuster";
 });
 
-scotchApp.controller('dayController', function ($scope) {
+scotchApp.controller('syllabusController', function ($scope) {
     $scope.message = "Day view below";
 });
 
@@ -48,3 +43,4 @@ scotchApp.controller('loginController', function ($scope) {
 scotchApp.controller('signupController', function ($scope) {
     $scope.message = "Signup below";
 });
+

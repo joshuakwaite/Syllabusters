@@ -1,10 +1,11 @@
-
 angular.module("scotchApp")
 
     .service("httpService", ["$http", function ($http) {
 
         var url = "/";
-
+        var adminUrl = "/admin";
+        var courseUrl = "/api/course";
+        var userUrl = "/user"
 
         this.addUser = function (user) {
             return $http.post(url, user)
@@ -14,6 +15,9 @@ angular.module("scotchApp")
         };
         this.removeUser = function (id) {
             return $http.delete(url + "/" + id)
-        }
+        };
+        this.getSyllabi = function () {
+            return $http.get(courseUrl)
+        };
 
     }]);

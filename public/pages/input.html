@@ -1,0 +1,28 @@
+<label for="syllabus"></label>
+<label for="selector"></label>
+
+<div class="container">
+    <div>
+
+        <select id="syllabus" ng-model="syllabus.courseName"   ng-options="x for x in syllabi"></select>
+
+        <select id="selector" ng-model="selected.name" ng-options="x for x in types">
+        </select>
+        <h1>You have selected {{selected.name}}</h1>
+
+    </div>
+
+    <div>
+        URL: <input type="url" id="url" ng-model="selected.url">
+    </div>
+    <div>
+        Order: <input type="number" id="order" ng-model="selected.order">
+    </div>
+    <div>
+        Description: <textarea name="lesson" id="description" cols="30" rows="10" placeholder="Explain the lesson"
+                               ng-model="selected.description"></textarea>
+    </div>
+    <div>
+        <button ng-click="addObject(selected)" class="btn btn-md btn-primary">Add to Syllabus</button>
+    </div>
+</div>
