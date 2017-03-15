@@ -5,7 +5,7 @@ angular.module("scotchApp")
         var url = "/";
         var adminUrl = "/admin";
         var courseUrl = "/api/course";
-        var userUrl = "/user"
+        var userUrl = "/user";
 
         this.addUser = function (user) {
             return $http.post(url, user)
@@ -17,7 +17,13 @@ angular.module("scotchApp")
             return $http.delete(url + "/" + id)
         };
         this.getSyllabi = function () {
-            return $http.get(courseUrl)
-        };
+            return $http.get(courseUrl);
 
+        };
+        this.saveSyllabus = function (syllabus) {
+            return $http.post(courseUrl, syllabus)
+        };
+        this.editSyllabus = function (id) {
+            return $http.put(courseUrl + "/" + id)
+        }
     }]);

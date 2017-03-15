@@ -4,11 +4,13 @@
 <div class="container">
     <div>
 
-        <select id="syllabus" ng-model="syllabus.courseName"   ng-options="x for x in syllabi"></select>
+        <!--<span ng-repeat="syllabus in syllabi"> {{syllabus.name}}</span>-->
+
+        <select id="syllabus" ng-init="syllabi.name=name[0]"  ng-model="syllabi.name"   ng-options="syllabus as syllabus.name for syllabus in name track by syllabus.id"></select>
 
         <select id="selector" ng-model="selected.name" ng-options="x for x in types">
         </select>
-        <h1>You have selected {{selected.name}}</h1>
+        <h1>You have selected {{ selected.name }}</h1>
 
     </div>
 

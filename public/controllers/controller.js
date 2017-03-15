@@ -18,6 +18,9 @@ scotchApp.controller('signupController', function ($scope) {
     $scope.message = "Signup below";
 });
 
-scotchApp.controller('syllabusController', function($scope) {
 
-});
+scotchApp.controller('syllabusController',["$scope", "httpService", function($scope, httpService) {
+
+    $scope.addSyllabus = httpService.saveSyllabus;
+
+}]);
