@@ -8,36 +8,23 @@ scotchApp.config(function ($routeProvider) {
             controller: 'mainController'
         })
 
-        .when('/dayView', {
-            templateUrl: 'pages/dayView.html',
-            controller: 'dayController'
+        .when('/syllabus', {
+            templateUrl: 'pages/syllabus.html',
+            controller: 'syllabusController'
         })
 
         .when('/weekView', {
             templateUrl: 'pages/weekView.html',
             controller: 'weekController'
         })
+
+        .when('/input', {
+            templateUrl: 'pages/input.html',
+            controller: "inputController"
+        });
 });
 
-scotchApp.controller('mainController', function ($scope) {
-    $scope.message = "Something cool to say about the Syllabuster";
-});
 
-scotchApp.controller('dayController', function ($scope) {
-    $scope.message = "Day view below";
-});
-
-scotchApp.controller('weekController', function ($scope) {
-    $scope.message = "Week view below";
-});
-
-scotchApp.controller('loginController', function ($scope) {
-    $scope.message = "Login below";
-});
-
-scotchApp.controller('signupController', function ($scope) {
-    $scope.message = "Signup below";
-});
 
 
 scotchApp.directive("navbar", ["UserService", function (UserService) {
@@ -48,3 +35,4 @@ scotchApp.directive("navbar", ["UserService", function (UserService) {
         }
     }
 }]);
+
