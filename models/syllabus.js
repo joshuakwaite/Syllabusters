@@ -20,28 +20,28 @@ var courseSchema = new Schema ({
         required: true
     },
     lessons: [{
-        name: String,
+        objectName: String,
         week: String,
         order: Number,
         link: String,
         description: String
     }],
     exercises: [{
-        name: String,
+        objectName: String,
         week: String,
         link: String,
         order: Number,
         description: String
     }],
     projects: [{
-        name: String,
+        objectName: String,
         week: String,
         link: String,
         order: Number,
         description: String
     }],
     warmups: [{
-        name: String,
+        objectName: String,
         week: String,
         link: String,
         order: Number,
