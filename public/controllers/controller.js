@@ -1,3 +1,4 @@
+
 var scotchApp = angular.module("scotchApp");
 
 scotchApp.controller('mainController', function ($scope) {
@@ -18,7 +19,6 @@ scotchApp.controller('signupController', function ($scope) {
 
 
 scotchApp.controller('syllabusController',["$scope", "httpService", function($scope, httpService) {
-
     $scope.addSyllabus = httpService.saveSyllabus;
 
 }]);

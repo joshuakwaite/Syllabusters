@@ -3,8 +3,8 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
 
     $scope.types = ["Warmup", "Lesson", "Exercise", "Project", "Test"];
 
-    $scope.addObject = function (object) {
 
+    $scope.addObject = function (object) {
 
         syllabiService.saveCourse($scope.syllabi.name)
 
