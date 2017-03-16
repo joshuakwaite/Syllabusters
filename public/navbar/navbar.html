@@ -1,15 +1,21 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container">
         <ul class="nav navbar-nav navbar-left">
             <li><a href="#!/home">Home</a></li>
-            <li><a href="#!/syllabus">Syllabus</a></li>
             <li><a href="#!/weekView">Week View</a></li>
-            <li><a href="#!/input">Input</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Add<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#!/syllabus">New Syllabus</a></li>
+            <li><a href="#!/input">New Syllabus Item</a></li>
+          </ul>
+        </li>
             <li ng-hide="userService.isAuthenticated()"><a href="#!/signup">Sign Up</a></li>
             <li ng-hide="userService.isAuthenticated()"><a href="#!/login">Login</a></li>
             <li ng-show="userService.isAuthenticated()"><a href="#!/logout">Logout</a></li>
         </ul>
     </div>
 </nav>
+
