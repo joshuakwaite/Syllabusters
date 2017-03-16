@@ -1,3 +1,5 @@
+var scotchApp = angular.module("scotchApp");
+
 scotchApp.controller('mainController', function ($scope) {
     $scope.message = "Something cool to say about the Syllabuster";
 });
