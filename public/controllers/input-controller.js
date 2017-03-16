@@ -1,29 +1,38 @@
-angular.module("scotchApp")
-    .controller('inputController', ["httpService", "$scope", function (httpService, $scope) {
+var scotchApp = angular.module("scotchApp")
+scotchApp.controller('inputController', ["httpService", "$scope", function (httpService, $scope) {
 
-        $scope.types = ["Warmup", "Lesson", "Exercise", "Project", "Test"];
+    $scope.types = ["Warmup", "Lesson", "Exercise", "Project", "Test"];
 
-        $scope.syllabi = httpService.getSyllabi().then(function (response) {
-            $scope.name = response.data;
-            return response.data.name
+    $scope.syllabi = httpService.getSyllabi().then(function (response) {
+        $scope.name = response.data;
+        return response.data.name
 
-            });
+    });
 
-        $scope.addObject = function (object) {
+    $scope.addObject = function (object) {
 
 
+        httpService.getOneSyllabus($scope.syllabi.name).then(function (response) {
+            data = response.data;
 
-            httpService.getOneSyllabus($scope.syllabi.name).then(function(response) {
-                data = response.data;
+            var lowerName = object.name.toLowerCase();
+            var pluralObject = lowerName + "s";
 
-                var lowerName = object.name.toLowerCase();
-                var pluralObject = lowerName + "s";
+            data[pluralObject].push(object);
 
-                data[pluralObject].push(object);
+            httpService.editSyllabus(data).then(function (response) {
+            })
+        })
+    }
 
-                httpService.editSyllabus(data).then(function(response) {
-                    })
-                })
-            }
+}]);
 
-    }]);
+// scotchApp.service("syllabiService", [ "$scope", "httpService", function ($scope, httpService) {
+//
+//     this.selectedSyllabi = function () {
+//         httpService.getOneSyllabus($scope.syllabi.name).then(function(response) {
+//             return response.data
+//         })
+//     }
+//
+// }])

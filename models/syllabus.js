@@ -23,37 +23,47 @@ var courseSchema = new Schema ({
     lessons: [{
         objectName: String,
         week: String,
-        order: Number,
         link: String,
-        description: String
+        dayInWeek: Number,
+        description: String,
+        dueDate: Date,
+        startDate: Date
     }],
     exercises: [{
         objectName: String,
         week: String,
         link: String,
-        order: Number,
-        description: String
+        dayInWeek: Number,
+        description: String,
+        dueDate: Date,
+        startDate: Date
     }],
     projects: [{
         objectName: String,
         week: String,
         link: String,
-        order: Number,
-        description: String
+        dayInWeek: Number,
+        description: String,
+        dueDate: Date,
+        startDate: Date
     }],
     warmups: [{
         objectName: String,
         week: String,
         link: String,
-        order: Number,
-        description: String
+        dayInWeek: Number,
+        description: String,
+        dueDate: Date,
+        startDate: Date
     }],
     tests: [{
         objectName: String,
         week: String,
         link: String,
-        order: Number,
-        description: String
+        dayInWeek: Number,
+        description: String,
+        dueDate: Date,
+        startDate: Date
     }],
     weekNotes: [{
         weekNumber: Number,
