@@ -4,23 +4,34 @@
 <div class="container">
     <div>
 
-        <select id="syllabus" ng-model="syllabus.courseName" ng-options="x for x in syllabi"></select>
+
+
+        <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name">
+            <option value="" >Select Option</option>
+        </select>
+
 
         <select id="selector" ng-model="selected.name" ng-options="x for x in types">
+            <option value="">Select Option</option>
         </select>
-        <h1>You have selected {{selected.name}}</h1>
-
+        <h1>You have selected {{ selected.name }}</h1>
     </div>
-
-
     <div class="row">
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4">
+        {{selected.name}} Name: <input type="text" ng-model="selected.objectName">
+    </div>
+     <div class="col-xs-4"></div>
+  </div>
+  <br>
+      <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
             URL:
             <input type="url" id="url" ng-model="selected.url">
         </div>
         <div class="col-xs-4"></div>
-    </div>
+  </div>
     <br>
     <div class="row">
        <div class="col-xs-4"></div>
