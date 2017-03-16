@@ -6,14 +6,39 @@
 
 
 <div class="container">
-    <div class="row">
-        <input ng-model="user.username" placeholder="Username">
+    <div class="loginInput">
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+               Username:
+                <input ng-model="user.username">
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+               Password:
+                <input ng-model="user.password">
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-2">
+                <button ng-click='login(user)' class='btn'>Submit</button>
+            </div>
+            <div class="col-xs-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-2">
+                <a> forgot password? </a>
+            </div>
+            <div class="col-xs-5"></div>
+        </div>
     </div>
-    <div class="row">
-        <input ng-model="user.password" placeholder="Password">
-    </div>
-    <button ng-click='login(user)' class='btn'>Submit</button>
 </div>
-
-<a> forgot password? </a>
-

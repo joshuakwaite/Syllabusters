@@ -1,0 +1,39 @@
+body {
+    background-color: #00274C
+}
+
+h1 {
+    text-align: center;
+    font-size: 50pt;
+    color: gold;
+    font-family: "Nanum Myeongjo"
+}
+
+.homeImage {
+    width: 100%;
+}
+
+div {
+    color: white
+}
+
+.btn {
+    width: 100%;
+    margin-top: 50pt;
+    background-color: gold;
+    color: #00274C;
+    font-family: "Nanum Myeongjo";
+    
+}
+
+.syllabusInput {
+    margin-top: 50pt
+}
+
+.loginInput {
+    margin-top: 30pt
+}
+
+input {
+    width: 100%
+}

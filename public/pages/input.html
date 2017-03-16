@@ -4,7 +4,7 @@
 <div class="container">
     <div>
 
-        <select id="syllabus" ng-model="syllabus.courseName"   ng-options="x for x in syllabi"></select>
+        <select id="syllabus" ng-model="syllabus.courseName" ng-options="x for x in syllabi"></select>
 
         <select id="selector" ng-model="selected.name" ng-options="x for x in types">
         </select>
@@ -12,17 +12,38 @@
 
     </div>
 
-    <div>
-        URL: <input type="url" id="url" ng-model="selected.url">
+
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            URL:
+            <input type="url" id="url" ng-model="selected.url">
+        </div>
+        <div class="col-xs-4"></div>
     </div>
-    <div>
-        Order: <input type="number" id="order" ng-model="selected.order">
+    <br>
+    <div class="row">
+       <div class="col-xs-4"></div>
+       <div class="col-xs-4">
+        Order:
+        <input type="number" id="order" ng-model="selected.order">
+        </div>
+        <div class="col-sx-4"></div>
     </div>
-    <div>
-        Description: <textarea name="lesson" id="description" cols="30" rows="10" placeholder="Explain the lesson"
-                               ng-model="selected.description"></textarea>
+    <br>
+    <div class="row">
+       <div class="col-xs-4"></div>
+       <div class="col-xs-4">
+        Lesson Description:
+        <textarea name="lesson" id="description" cols="48" rows="5" ng-model="selected.description"></textarea>
+        </div>
+        <div class="col-xs-4"></div>
     </div>
-    <div>
+    <div class="row">
+       <div class="col-xs-5"></div>
+       <div class="col-xs-2">
         <button ng-click="addObject(selected)" class="btn btn-md btn-primary">Add to Syllabus</button>
+        </div>
+        <div class="col-xs-5"></div>
     </div>
 </div>
