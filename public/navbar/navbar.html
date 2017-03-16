@@ -1,6 +1,12 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <ul class="nav navbar-nav navbar-left">
+            <li>
+                <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name">
+                <option value="" >Select Option</option>
+            </select>
+                <button class="btn btn-info btn-xs" ng-click="populate(syllabi.name)">Click Here</button>
+            </li>
             <li><a href="#!/home">Home</a></li>
             <li><a href="#!/weekView">Week View</a></li>
         </ul>

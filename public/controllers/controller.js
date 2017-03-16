@@ -8,10 +8,6 @@ scotchApp.controller('dayController', function ($scope) {
     $scope.message = "Day view below";
 });
 
-scotchApp.controller('weekController', function ($scope) {
-    $scope.message = "Week view below";
-});
-
 scotchApp.controller('loginController', function ($scope) {
     $scope.message = "Login below";
 });

@@ -30,6 +30,7 @@ scotchApp.config(function ($routeProvider) {
 scotchApp.directive("navbar", ["UserService", function (UserService) {
     return {
         templateUrl: "navbar/navbar.html",
+        controller : "navbarController",
         link: function (scope) {
             scope.userService = UserService;
         }

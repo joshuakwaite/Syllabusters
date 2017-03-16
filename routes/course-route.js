@@ -12,6 +12,17 @@ courseRoute.route("/")
             res.send(course);
         });
     })
+    // Once the projects, exercises, etc. are separated
+    // .get(function (req, res) {
+    //     Course.findOne({user: req.user._id})
+    //         .populate("lessons warmups exercises projects tests")
+    //         .exec(function (err, course) {
+    //             if (err) return res.status(500).send(err);
+    //             res.send(course);
+    //         });
+    // });
+
+
 
     .post(function (req, res) {
         var course = new Course(req.body);
