@@ -18,6 +18,10 @@ scotchApp.config(function ($routeProvider) {
             controller: 'weekController'
         })
 
+        .when("/superClever", {
+            templateUrl: "pages/modal.html",
+            controller: "modalController"
+        })
         .when('/input', {
             templateUrl: 'pages/input.html',
             controller: "inputController"

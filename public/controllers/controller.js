@@ -1,3 +1,6 @@
+
+
+
 scotchApp.controller('mainController', function ($scope) {
     $scope.message = "Something cool to say about the Syllabuster";
 });
@@ -20,7 +23,6 @@ scotchApp.controller('signupController', function ($scope) {
 
 
 scotchApp.controller('syllabusController',["$scope", "httpService", function($scope, httpService) {
-
     $scope.addSyllabus = httpService.saveSyllabus;
 
 }]);

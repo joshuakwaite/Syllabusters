@@ -6,7 +6,6 @@ angular.module("scotchApp")
         $scope.syllabi = httpService.getSyllabi().then(function (response) {
             $scope.name = response.data;
             return response.data.name
-
             });
 
         $scope.addObject = function (object) {
