@@ -1,24 +1,40 @@
 <div class="container">
     <div>
-
-        <label for="syllabus"></label>
-        <label for="selector"></label>
-
-
-        <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name">
-            <option value="">Select Option</option>
-        </select>
-
-
-        <select id="selector" ng-model="selected.name" ng-options="x for x in types">
-            <option value="">Select Option</option>
-        </select>
         <h1>You have selected {{ selected.name }}</h1>
     </div>
     <div class="row">
         <div class="col-xs-4"></div>
+        <div class="col-xs-2">
+            <p class="syllabusSelect">Select your syllabus:</p>
+        </div>
+        <div class="col-xs-2">
+            <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name">
+                <option value="">Select Option</option>
+            </select>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-2">
+            <p class="syllabusSelect">Select what to add:</p>
+        </div>
+        <div class="col-xs-2">
+            <select id="selector" ng-model="selected.name" ng-options="x for x in types">
+                <option value="">Select Option</option>
+            </select>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+
+        <label for="syllabus"></label>
+        <label for="selector"></label>
+
+    <div class="row">
+        <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            {{selected.name}} Name: <input type="text" ng-model="selected.objectName">
+            {{selected.name}} Name:
+            <input type="text" ng-model="selected.objectName">
         </div>
         <div class="col-xs-4"></div>
     </div>
