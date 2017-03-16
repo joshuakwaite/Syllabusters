@@ -5,9 +5,25 @@ angular.module("scotchApp")
 
         $scope.syllabi = httpService.getSyllabi().then(function (response) {
             $scope.name = response.data;
-            return response.data[0].name
+            return response.data.name
+
             });
 
-        $scope.addObject = httpService.editSyllabus();
+        $scope.addObject = function (object) {
+
+
+
+            httpService.getOneSyllabus($scope.syllabi.name).then(function(response) {
+                data = response.data;
+
+                var lowerName = object.name.toLowerCase();
+                var pluralObject = lowerName + "s";
+
+                data[pluralObject].push(object);
+
+                httpService.editSyllabus(data).then(function(response) {
+                    })
+                })
+            }
 
     }]);

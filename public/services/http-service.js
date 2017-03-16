@@ -13,17 +13,20 @@ angular.module("scotchApp")
         this.showUser = function () {
             return $http.get(url)
         };
-        this.removeUser = function (id) {
-            return $http.delete(url + "/" + id)
+        this.removeUser = function (object) {
+            return $http.delete(url + "/" + object._id)
         };
         this.getSyllabi = function () {
             return $http.get(courseUrl);
 
         };
+        this.getOneSyllabus = function (object) {
+            return $http.get("/api/course/" + object._id)
+        }
         this.saveSyllabus = function (syllabus) {
             return $http.post(courseUrl, syllabus)
         };
-        this.editSyllabus = function (id) {
-            return $http.put(courseUrl + "/" + id)
-        }
+        this.editSyllabus = function (object) {
+            return $http.put("/api/course/" + object._id, object)
+        };
     }]);

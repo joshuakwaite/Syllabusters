@@ -27,8 +27,8 @@ courseRoute.route("/")
 
     });
 
-courseRoute.delete("/:courseId", function (req, res) {
-    Course.findOneAndRemove({_id: req.params.todoId, user: req.user._id},
+courseRoute.delete("/:id", function (req, res) {
+    Course.findOneAndRemove({_id: req.params.id, user: req.user._id},
         function (err, course) {
             if (err)
                 return res.status(500).send(err);
@@ -40,16 +40,16 @@ courseRoute.delete("/:courseId", function (req, res) {
 
 });
 
-courseRoute.put("/:courseId", function (req, res) {
-    Course.findOneAndUpdate({_id: req.params.todoId, user: req.user._id}, req.body, {new: true}, function (err, updatedCourse) {
+courseRoute.put("/:id", function (req, res) {
+    Course.findOneAndUpdate({_id: req.params.id, user: req.user._id}, req.body, {new: true}, function (err, updatedCourse) {
             if (err)
                 return res.status(500).send(err);
             res.send(updatedCourse)
         });
 });
 
-courseRoute.get("/:courseId", function (req, res) {
-    Course.findOne({_id: req.params.todoId, user: req.user._id}, function (err, course) {
+courseRoute.get("/:id", function (req, res) {
+    Course.findOne({_id: req.params.id, user: req.user._id}, function (err, course) {
             if (err)
                 return res.status(500).send(err);
             res.send(course);
