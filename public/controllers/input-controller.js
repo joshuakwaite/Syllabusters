@@ -5,7 +5,6 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
 
     $scope.addObject = function (object) {
 
-
         syllabiService.saveCourse($scope.syllabi.name)
 
         httpService.getOneSyllabus($scope.syllabi.name).then(function (response) {
