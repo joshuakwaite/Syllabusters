@@ -1,9 +1,8 @@
 var scotchApp = angular.module("scotchApp");
 
-scotchApp.controller('weekController', ["$scope", "syllabiService", function ($scope, syllabiService) {
+scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService", function ($scope, httpService, syllabiService) {
 
-    $scope.data = syllabiService.selectedSyllabi()
-
+    console.log(syllabiService.returnSavedCourse())
 
 }]);
 
