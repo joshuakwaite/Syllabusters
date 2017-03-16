@@ -20,10 +20,13 @@ angular.module("scotchApp")
             return $http.get(courseUrl);
 
         };
+        this.getOneSyllabus = function (object) {
+            return $http.get("/api/course/" + object._id)
+        }
         this.saveSyllabus = function (syllabus) {
             return $http.post(courseUrl, syllabus)
         };
         this.editSyllabus = function (object) {
-            return $http.put("/api/course/" + object[0]._id, object)
+            return $http.put("/api/course/" + object._id, object)
         };
     }]);

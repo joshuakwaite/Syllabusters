@@ -5,7 +5,8 @@ var courseSchema = new Schema ({
 
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     startDate: {
         type: Date,
@@ -41,6 +42,13 @@ var courseSchema = new Schema ({
         description: String
     }],
     warmups: [{
+        objectName: String,
+        week: String,
+        link: String,
+        order: Number,
+        description: String
+    }],
+    tests: [{
         objectName: String,
         week: String,
         link: String,
