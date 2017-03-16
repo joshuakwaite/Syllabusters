@@ -24,7 +24,7 @@ angular.module("scotchApp")
             return $http.get("/api/course/" + object._id)
         }
         this.saveSyllabus = function (syllabus) {
-            return $http.post(courseUrl, syllabus)
+            return $http.post("/api/course", syllabus)
         };
         this.editSyllabus = function (object) {
             return $http.put("/api/course/" + object._id, object)
