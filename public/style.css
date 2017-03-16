@@ -1,11 +1,32 @@
 body {
-    background-color: #00274C
+    background-color: #50B7C8;
+    margin: 30px 0px;
+}
+.navbar-default .navbar-nav > li.dropdown:hover > a, 
+.navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+.navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+    background-color: rgb(231, 231, 231);
+    color: rgb(85, 85, 85);
+}
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+
+
+
+.navbar-default {
+    background-color: #0F3138;
 }
 
 h1 {
     text-align: center;
     font-size: 50pt;
-    color: gold;
+    color: #003E6F;
     font-family: "Nanum Myeongjo"
 }
 
@@ -20,8 +41,8 @@ div {
 .btn {
     width: 100%;
     margin-top: 50pt;
-    background-color: gold;
-    color: #00274C;
+    background-color: #003E6F;
+    color: white;
     font-family: "Nanum Myeongjo";
     
 }
@@ -36,4 +57,8 @@ div {
 
 input {
     width: 100%
+}
+
+.syllabusSelect {
+    text-align: right
 }
