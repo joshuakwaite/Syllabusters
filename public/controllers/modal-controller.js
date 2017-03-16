@@ -1,5 +1,5 @@
 angular.module("scotchApp")
-    .controller("modalController" ["$scope", function ($scope) {
+    .controller("modalController", ["$scope", function ($scope) {
 
 
     }]);
