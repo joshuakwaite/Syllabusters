@@ -49,7 +49,7 @@ app.service("UserService", ["$http", "$location", "TokenService", function ($htt
 
     this.logout = function () {
         TokenService.removeToken();
-        $location.path("/");
+        $location.path("/login");
     };
 
     this.isAuthenticated = function () {

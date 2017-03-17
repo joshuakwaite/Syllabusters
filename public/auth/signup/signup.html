@@ -4,60 +4,62 @@
 
 <p>Fill out the information below to signup for Syllabusters!</p>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4">
-           Name:
-            <input ng-model="user.name">
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4">
-           Username:
-            <input ng-model="user.username">
-        </div>
-        <div class="col-xs-4"></div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4">
-           Email Address:
-            <input ng-model="user.email">
-        </div>
-        <div class="col-xs-4"></div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4">
-           Password:
-            <input type="password" id="password" ng-model="user.password">
-        </div>
-        <div class="col-xs-4"></div>
-    </div>
-       <br>
-        <div class="form-group">
+<form>
+    <div class="form-group">
+        <div class="container">
             <div class="row">
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4">
-                   Repeat Password:
-                    <input type="password" id="passwordRepeat" class="form-control" ng-model="passwordRepeat">
+                    Name:
+                    <input ng-model="user.name">
+                </div>
             </div>
-            <div class="col-xs-4"></div>
+            <br>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    Username:
+                    <input ng-model="user.username">
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    Email Address:
+                    <input ng-model="user.email">
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    Password:
+                    <input type="password" id="password" ng-model="user.password">
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    Repeat Password:
+                    <input type="password" id="passwordRepeat" class="form-control" ng-model="passwordRepeat">
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+            <br>
+            <span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
         </div>
-        <br>
-        <span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
     </div>
-</div>
-<div class="row">
-    <div class="col-xs-5"></div>
-    <div class="col-xs-2">
-        <button ng-click='signup(user)' class='btn'>Submit</button>
+    <div class="row">
+        <div class="col-xs-5"></div>
+        <div class="col-xs-2">
+            <button ng-click='signup(user)' class='btn'>Submit</button>
+        </div>
+        <div class="col-xs-5"></div>
     </div>
-    <div class="col-xs-5"></div>
-</div>
+</form>
 

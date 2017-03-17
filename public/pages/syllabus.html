@@ -2,52 +2,55 @@
     <center>
         <h1>Create Your syllabus</h1>
     </center>
+    <form>
+        <div class="form-group">
+            <div class="syllabusInput">
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Course Name:
+                        <input type="text" id="courseName" ng-model="syllabus.name">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Start Date:
+                        <input type="date" id="startDate" ng-model="syllabus.startDate">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        End Date:
+                        <input type="date" id="endDate" ng-model="syllabus.endDate">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Instructor:
+                        <input type="text" id="teacher" ng-model="syllabus.teacher">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
 
-    <div class="syllabusInput">
-        <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                Course Name:
-                <input type="text" id="courseName" ng-model="syllabus.name">
             </div>
-            <div class="col-xs-4"></div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                Start Date:
-                <input type="date" id="startDate" ng-model="syllabus.startDate">
-            </div>
-            <div class="col-xs-4"></div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                End Date:
-                <input type="date" id="endDate" ng-model="syllabus.endDate">
-            </div>
-            <div class="col-xs-4"></div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                Instructor:
-                <input type="text" id="teacher" ng-model="syllabus.teacher">
-            </div>
-            <div class="col-xs-4"></div>
-        </div>
-
-    </div>
 
 
-    <div class="row">
-       <div class="col-xs-5"></div>
-       <div class="col-xs-2">
-        <button ng-click="addSyllabus(syllabus)" class="btn btn-lrg btn-success">Add Syllabus</button>
+            <div class="row">
+                <div class="col-xs-5"></div>
+                <div class="col-xs-2">
+                    <button ng-click="addSyllabus(syllabus)" class="btn btn-lrg btn-success">Add Syllabus</button>
+                </div>
+                <div class="col-xs-5"></div>
+            </div>
         </div>
-        <div class="col-xs-5"></div>
-    </div>
+    </form>
 </div>
