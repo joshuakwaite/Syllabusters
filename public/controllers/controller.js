@@ -1,4 +1,3 @@
-
 var scotchApp = angular.module("scotchApp");
 
 scotchApp.controller('mainController', function ($scope) {

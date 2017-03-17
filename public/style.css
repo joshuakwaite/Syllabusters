@@ -62,3 +62,8 @@ input {
 .syllabusSelect {
     text-align: right
 }
+
+.grabbable {
+    cursor: pointer;
+}
+
