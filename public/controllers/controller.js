@@ -17,8 +17,24 @@ scotchApp.controller('signupController', function ($scope) {
 });
 
 
-scotchApp.controller('syllabusController',["$scope", "httpService", function($scope, httpService) {
+scotchApp.controller('syllabusController',["$scope", "httpService", "$location", "$window", function($scope, httpService, $location, $window) {
 
-    $scope.addSyllabus = httpService.saveSyllabus;
+    $scope.addSyllabus = function(object) {
+
+        httpService.saveSyllabus(object).then(function(response) {
+            console.log(response.data);
+            $window.location.reload();
+            $location.path("/input");
+
+            httpService.getSyllabi().then(function(response){
+                console.log(response)
+            });
+
+
+
+
+        });
+
+    };
 
 }]);

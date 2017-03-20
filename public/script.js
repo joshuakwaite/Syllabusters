@@ -21,16 +21,18 @@ scotchApp.config(function ($routeProvider) {
         .when('/input', {
             templateUrl: 'pages/input.html',
             controller: "inputController"
+        })
+        .when('/combine', {
+            templateUrl: 'pages/combine.html',
+            controller: "combineController"
         });
 });
-
-
 
 
 scotchApp.directive("navbar", ["UserService", function (UserService) {
     return {
         templateUrl: "navbar/navbar.html",
-        controller : "navbarController",
+        controller: "navbarController",
         link: function (scope) {
             scope.userService = UserService;
         }

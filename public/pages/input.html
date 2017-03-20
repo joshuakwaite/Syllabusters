@@ -1,38 +1,18 @@
 <label for="selector"></label>
 
 <div class="container">
-    <div>
-        <h1>You have selected {{ selected.name }}</h1>
-    </div>
-    <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-2">
-            <p class="syllabusSelect">Select your syllabus:</p>
-        </div>
-        <div class="col-xs-2">
-            <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name">
-                <option value="">Select Option</option>
-            </select>
-        </div>
-        <div class="col-xs-4"></div>
-    </div>
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-2">
             <p class="syllabusSelect">Select what to add:</p>
         </div>
         <div class="col-xs-2">
-            <select id="selector" ng-model="selected.name" ng-options="x for x in types">
+            <select id="selector" ng-model="selected.objectType" ng-options="x for x in types">
                 <option value="">Select Option</option>
             </select>
         </div>
         <div class="col-xs-4"></div>
     </div>
-
-
-
-
-
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">

@@ -4,21 +4,18 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
     $scope.types = ["Warmup", "Lesson", "Exercise", "Project", "Test"];
 
     $scope.addObject = function (object) {
+        var notCapitalizedObject = object;
+           notCapitalizedObject.objectType = notCapitalizedObject.objectType.toLowerCase();
 
 
-        syllabiService.saveCourse($scope.syllabi.name)
+        httpService.postAssignment(notCapitalizedObject).then(function(response) {
+            console.log(response.data)
+        });
 
-        httpService.getOneSyllabus($scope.syllabi.name).then(function (response) {
-            data = response.data;
-
-            var lowerName = object.name.toLowerCase();
-            var pluralObject = lowerName + "s";
-
-            data[pluralObject].push(object);
-
-            httpService.editSyllabus(data).then(function (response) {
-            })
+        httpService.getAssignments().then(function(response) {
+            console.log(response.data)
         })
+
     }
 
 }]);

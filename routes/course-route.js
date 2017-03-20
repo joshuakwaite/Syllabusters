@@ -1,28 +1,19 @@
 "use strict";
 var express = require("express");
 var Course = require("../models/syllabus");
+
 var courseRoute = express.Router();
 
 
 courseRoute.route("/")
     .get(function (req, res) {
-        Course.find({user: req.user._id}, function (err, course) {
-            if (err)
-                return res.status(500).send(err);
-            res.send(course);
-        });
+        Course.find({user: req.user._id})
+            .populate("assignments")
+            .exec(function (err, course) {
+                if (err) return res.status(500).send(err);
+                res.send(course);
+            });
     })
-    // Once the projects, exercises, etc. are separated
-    // .get(function (req, res) {
-    //     Course.findOne({user: req.user._id})
-    //         .populate("lessons warmups exercises projects tests")
-    //         .exec(function (err, course) {
-    //             if (err) return res.status(500).send(err);
-    //             res.send(course);
-    //         });
-    // });
-
-
 
     .post(function (req, res) {
         var course = new Course(req.body);
@@ -60,11 +51,12 @@ courseRoute.put("/:id", function (req, res) {
 });
 
 courseRoute.get("/:id", function (req, res) {
-    Course.findOne({_id: req.params.id, user: req.user._id}, function (err, course) {
-            if (err)
-                return res.status(500).send(err);
+    Course.findOne({_id: req.params.id, user: req.user._id})
+        .populate("assignments")
+        .exec(function (err, course) {
+            if (err) return res.status(500).send(err);
             res.send(course);
-        })
+        });
 });
 
 

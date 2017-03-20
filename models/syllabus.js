@@ -20,50 +20,9 @@ var courseSchema = new Schema ({
         type: String,
         required: true
     },
-    lessons: [{
-        objectName: String,
-        week: String,
-        link: String,
-        dayInWeek: Number,
-        description: String,
-        dueDate: Date,
-        startDate: Date
-    }],
-    exercises: [{
-        objectName: String,
-        week: String,
-        link: String,
-        dayInWeek: Number,
-        description: String,
-        dueDate: Date,
-        startDate: Date
-    }],
-    projects: [{
-        objectName: String,
-        week: String,
-        link: String,
-        dayInWeek: Number,
-        description: String,
-        dueDate: Date,
-        startDate: Date
-    }],
-    warmups: [{
-        objectName: String,
-        week: String,
-        link: String,
-        dayInWeek: Number,
-        description: String,
-        dueDate: Date,
-        startDate: Date
-    }],
-    tests: [{
-        objectName: String,
-        week: String,
-        link: String,
-        dayInWeek: Number,
-        description: String,
-        dueDate: Date,
-        startDate: Date
+    assignments: [{
+        type: Schema.Types.ObjectId,
+        ref: "Assignment"
     }],
     weekNotes: [{
         weekNumber: Number,
@@ -74,7 +33,6 @@ var courseSchema = new Schema ({
         ref: "User",
         required: true
     }
-
 });
 
 module.exports = mongoose.model("Course", courseSchema);
