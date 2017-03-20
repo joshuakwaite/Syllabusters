@@ -33,26 +33,34 @@ angular.module("scotchApp")
 
         this.putSyllabusAssignment = function (object) {
             return $http.put("/api/course/" + object._id, object)
-        }
+        };
 
         //ASSIGNMENT HTTPS//
         this.getAssignments = function() {
             return $http.get("/api/assignment");
-        }
+        };
 
         this.getOneAssignment = function(object) {
             return $http.get("/api/assignment/" + object._id)
-        }
+        };
 
         this.postAssignment = function (object) {
             return $http.post("/api/assignment", object)
-        }
+        };
 
         this.putAssignment = function(object) {
             return $http.put("/api/assignment/", object._id, object)
-        }
+        };
 
         this.deleteAssignment = function(object) {
             return $http.delete("/api/assignment/", object._id)
-        }
+        };
+
+    //    UNFURLING REQUEST
+
+        this.getUnfurl = function(url) {
+            return $http.get("http://iframe.ly/api/iframely?url=" + url + "&api_key=da5116487a0da2ce256625")
+        };
+
+
     }]);
