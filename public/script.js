@@ -5,7 +5,7 @@ scotchApp.config(function ($routeProvider) {
 
         .when('/home', {
             templateUrl: 'pages/home.html',
-            controller: 'mainController'
+            controller: 'homeController'
         })
 
         .when('/syllabus', {
@@ -29,7 +29,11 @@ scotchApp.config(function ($routeProvider) {
         .when('/combine', {
             templateUrl: 'pages/combine.html',
             controller: "combineController"
-        });
+        })
+        .when('/view-syllabus', {
+            templateUrl: 'pages/view-syllabus.html',
+            controller: "viewSyllabusController"
+        })
 });
 
 

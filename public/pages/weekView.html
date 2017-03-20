@@ -1,9 +1,38 @@
-<div class="container-fluid">
+
+<div class="container-fluid" >
 <div class="row">
     <div class="col-xs-12">
         <h1>Week View</h1>
     </div>
+</div >
+    <div class="row" ng-repeat="day in week">
+        <div class="col-xs-12">
+            <h2>{{ day | date: 'EEEE' }}</h2>
+            <div class="row">
+                <div class="col-xs-3">
+                    <h3>Topics</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Warmups</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Exercises</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Projects</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Week View</h1>
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-12">
             <h2>Monday</h2>
@@ -12,15 +41,64 @@
     <div class="row">
         <div class="col-xs-3">
             <h3>Topics</h3>
+            <ul>
+                <li ng-repeat="assignment in assignments | objectType:'topic'" data-target="#viewModal{{ assignment._id }}" class="grabbable" data-toggle="modal"> {{ assignment.objectName  }}</li>
+            </ul>
         </div>
         <div class="col-xs-3">
             <h3>Warmups</h3>
+            <ul>
+                <li ng-repeat="assignment in assignments | objectType:'warmup'" data-target="#viewModal{{ assignment._id }}" class="grabbable" data-toggle="modal"> {{ assignment.objectName  }}</li>
+            </ul>
         </div>
         <div class="col-xs-3">
             <h3>Exercises</h3>
+            <ul>
+                <li ng-repeat="assignment in assignments | objectType:'lesson'" data-target="#viewModal{{ assignment._id }}" class="grabbable" data-toggle="modal"> {{ assignment.objectName  }}</li>
+            </ul>
         </div>
         <div class="col-xs-3">
             <h3>Projects</h3>
+            <ul>
+                <li ng-repeat="assignment in assignments | objectType:'project'" data-target="#viewModal{{ assignment._id }}" class="grabbable" data-toggle="modal"> {{ assignment.objectName  }}</li>
+            </ul>
         </div>
     </div>
 </div>
+
+
+
+<body class="container-fluid">
+
+
+<div class="modal fade" id="viewModal{{ assignment._id }}" role="dialog" ng-repeat="assignment in assignments">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="viewModalLabel">{{ Date }}</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <center>
+                <form>
+                    <div class="container-fluid">
+                        <textarea class="modalComments" cols="60%" rows="10"
+                                  placeholder="Put your comments here"></textarea>
+                    </div>
+                </form>
+            </center>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-danger"
+                        data-dismiss="modal"> Close
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
