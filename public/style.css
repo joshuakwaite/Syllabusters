@@ -10,17 +10,7 @@ body {
 }
 li.dropdown:hover > .dropdown-menu {
     display: block;
-}
-
-
-
-
-
-
-
-
-.navbar-default {
-    background-color: #0F3138;
+    z-index: -1
 }
 
 h1 {
@@ -44,7 +34,6 @@ div {
     background-color: #003E6F;
     color: white;
     font-family: "Nanum Myeongjo";
-    
 }
 
 .syllabusInput {
@@ -65,4 +54,10 @@ input {
 
 .grabbable {
     cursor: pointer;
+}
+
+.signup {
+    text-align: center;
+    padding: 25pt;
+    font-size: 15pt
 }
