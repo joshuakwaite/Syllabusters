@@ -1,6 +1,6 @@
 var app = angular.module("scotchApp");
 
-app.controller("viewSyllabusController", ["$scope", "syllabiService", "$location", function($scope, syllabiService, $location) {
+app.controller("viewSyllabusController", ["$scope", "syllabiService", "$location", "httpService", function($scope, syllabiService, $location, httpService) {
 
     var savedSyllabus;
 
@@ -13,14 +13,18 @@ app.controller("viewSyllabusController", ["$scope", "syllabiService", "$location
             $scope.course = course;
             savedSyllabus = course;
         }
-
     }
     retrieve();
 
     $scope.editAssignments = function (assignment) {
-        http
 
+    for (var i = 0; i < savedSyllabus.assignments.length; i++) {
+        if (savedSyllabus.assignments[i]._id == assignment._id) {
+            savedSyllabus.assignments.splice([i], 1, assignment);
+            httpService.editSyllabus(savedSyllabus).then(function(response) {
+                console.log(response)
+            })
+        }
     }
-
-
+    };
 }]);
