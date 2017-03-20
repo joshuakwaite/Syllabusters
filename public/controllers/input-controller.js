@@ -19,6 +19,3 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
     }
 
 }]);
-
-
-

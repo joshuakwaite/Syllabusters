@@ -55,4 +55,12 @@ angular.module("scotchApp")
         this.deleteAssignment = function(object) {
             return $http.delete("/api/assignment/", object._id)
         }
+
+    //    UNFURLING REQUEST
+
+        this.getUnfurl = function(url) {
+            return $http.get("http://iframe.ly/api/iframely?url=" + url + "&api_key=da5116487a0da2ce256625")
+        }
+
+
     }]);
