@@ -2,17 +2,19 @@
     <div class="container">
         <ul class="nav navbar-nav navbar-left">
             <li>
-                <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name">
+                <select id="syllabus" ng-model="syllabi.name" ng-options="syllabus as syllabus.name for syllabus in name"
+                        ng-show="userService.isAuthenticated()">
                 <option value="" >Select Option</option>
             </select>
-                <button class="btn btn-info btn-xs" ng-click="populate(syllabi.name)">Click Here</button>
+                <button class="btn btn-info btn-xs" ng-click="populate(syllabi.name)" ng-show="userService.isAuthenticated()">Click Here</button>
             </li>
-            <li><a href="#!/home">Home</a></li>
-            <li><a href="#!/weekView">Week View</a></li>
+            <li ng-show="userService.isAuthenticated()"><a href="#!/home">Home</a></li>
+            <li ng-show="userService.isAuthenticated()"><a href="#!/weekView">Week View</a></li>
+			<li ng-show="userService.isAuthenticated()"><a href="#!/superClever">Super Clever</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">Add<b class="caret"></b></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" ng-show="userService.isAuthenticated()">Add<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#!/syllabus">New Syllabus</a></li>
             <li><a href="#!/input">New Syllabus Item</a></li>

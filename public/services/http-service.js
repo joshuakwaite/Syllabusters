@@ -23,7 +23,7 @@ angular.module("scotchApp")
         };
         this.getOneSyllabus = function (object) {
             return $http.get("/api/course/" + object._id)
-        }
+        };
         this.saveSyllabus = function (syllabus) {
             return $http.post("/api/course", syllabus)
         };
