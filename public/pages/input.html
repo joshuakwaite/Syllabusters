@@ -1,81 +1,58 @@
+<label for="selector"></label>
+
 <div class="container">
-    <div>
-        <h1>You have selected {{ selected.name }}</h1>
-    </div>
-    <form>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-2">
-                    <p class="syllabusSelect">Select your syllabus:</p>
-                </div>
-                <div class="col-xs-2">
-                    <select id="syllabus" ng-model="syllabi.name"
-                            ng-options="syllabus as syllabus.name for syllabus in name">
-                        <option value="">Select Option</option>
-                    </select>
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-2">
-                    <p class="syllabusSelect">Select what to add:</p>
-                </div>
-                <div class="col-xs-2">
-                    <select id="selector" ng-model="selected.name" ng-options="x for x in types">
-                        <option value="">Select Option</option>
-                    </select>
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-
-            <label for="syllabus"></label>
-            <label for="selector"></label>
-
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    {{selected.name}} Name:
-                    <input type="text" ng-model="selected.objectName">
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    URL:
-                    <input type="url" id="url" ng-model="selected.url">
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Order:
-                    <input type="number" id="order" ng-model="selected.order">
-                </div>
-                <div class="col-sx-4"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Lesson Description:
-                    <textarea name="lesson" id="description" cols="48" rows="5"
-                              ng-model="selected.description"></textarea>
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <div class="row">
-                <div class="col-xs-5"></div>
-                <div class="col-xs-2">
-                    <button ng-click="addObject(selected)" class="btn btn-md btn-primary">Add to Syllabus</button>
-                </div>
-                <div class="col-xs-5"></div>
-            </div>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-2">
+            <p class="syllabusSelect">Select what to add:</p>
         </div>
-    </form>
+        <div class="col-xs-2">
+            <select id="selector" ng-model="selected.objectType" ng-options="x for x in types">
+                <option value="">Select Option</option>
+            </select>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            {{selected.name}} Name:
+            <input type="text" ng-model="selected.objectName">
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            URL:
+            <input type="url" id="url" ng-model="selected.url">
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            Order:
+            <input type="number" id="order" ng-model="selected.order">
+        </div>
+        <div class="col-sx-4"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            Lesson Description:
+            <textarea name="lesson" id="description" cols="48" rows="5" ng-model="selected.description"></textarea>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5"></div>
+        <div class="col-xs-2">
+            <button ng-click="addObject(selected)" class="btn btn-md btn-primary">Add to Syllabus</button>
+        </div>
+        <div class="col-xs-5"></div>
+    </div>
 </div>

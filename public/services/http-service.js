@@ -6,6 +6,7 @@ angular.module("scotchApp")
         var adminUrl = "/admin";
         var courseUrl = "/api/course";
         var userUrl = "/user";
+        var assignmentUrl = "/api/assignment";
 
         this.addUser = function (user) {
             return $http.post(url, user)
@@ -29,4 +30,29 @@ angular.module("scotchApp")
         this.editSyllabus = function (object) {
             return $http.put("/api/course/" + object._id, object)
         };
+
+        this.putSyllabusAssignment = function (object) {
+            return $http.put("/api/course/" + object._id, object)
+        }
+
+        //ASSIGNMENT HTTPS//
+        this.getAssignments = function() {
+            return $http.get("/api/assignment");
+        }
+
+        this.getOneAssignment = function(object) {
+            return $http.get("/api/assignment/" + object._id)
+        }
+
+        this.postAssignment = function (object) {
+            return $http.post("/api/assignment", object)
+        }
+
+        this.putAssignment = function(object) {
+            return $http.put("/api/assignment/", object._id, object)
+        }
+
+        this.deleteAssignment = function(object) {
+            return $http.delete("/api/assignment/", object._id)
+        }
     }]);

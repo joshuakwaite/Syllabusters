@@ -12,23 +12,25 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 
-app.use("/user", require("./routes/user-route"));
-
-app.use("/auth/change-password", expressJwt({secret: config.secret}));
-app.use("/auth", require("./routes/auth-routes"));
-
-app.use("/api", expressJwt({secret: config.secret}));
-
-app.use("/api/course", require("./routes/course-route"));
-
-app.use("/admin", require("./routes/admin-route"));
-
 mongoose.connect(config.database, function (err) {
     if (err) {
         throw err;
     }
     console.log("Connected to the database!")
 });
+
+app.use("/user", require("./routes/user-route"));
+
+app.use("/auth/change-password", expressJwt({secret: config.secret}));
+app.use("/auth", require("./routes/auth-routes"));
+
+
+app.use("/api", expressJwt({secret: config.secret}));
+
+app.use("/api/course", require("./routes/course-route"));
+app.use("/api/assignment", require("./routes/assignment-route"));
+
+app.use("/admin", require("./routes/admin-route"));
 
 app.listen(port, function(req, res) {
     console.log("This app is listening on " + port)
