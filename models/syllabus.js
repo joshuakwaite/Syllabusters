@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var courseSchema = new Schema ({
+var courseSchema = new Schema({
 
     name: {
         type: String,
@@ -21,9 +21,21 @@ var courseSchema = new Schema ({
         required: true
     },
     assignments: [{
-        type: Schema.Types.ObjectId,
-        ref: "Assignment"
-    }],
+            objectType: {
+                type: String,
+                required: true
+            },
+            objectName: {
+                type: String,
+                required: true
+            },
+            week: String,
+            dayInWeek: Number,
+            link: String,
+            description: String,
+            dueDate: Date,
+            startDate: Date
+        }],
     weekNotes: [{
         weekNumber: Number,
         note: String

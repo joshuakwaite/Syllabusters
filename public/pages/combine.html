@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-6" style="">
             <div class="row">
-            <div class="col-xs-3 grabbable" ng-repeat="assignment in assignments"
+            <div class="col-xs-3 grabbable" ng-repeat="assignment in assignments track by assignment._id"
             style="border: 1px solid black; margin: 10px; height: 130px;" ng-click="selected(assignment)">
             <h4>{{assignment.objectName}}</h4>
 
@@ -14,7 +14,7 @@
         </div>
             <div class="col-xs-6" style="">
                 <div class="row">
-                    <div class="col-xs-3 grabbable" ng-repeat="syllAssignment in syllAssignments"
+                    <div class="col-xs-3 grabbable" ng-repeat="syllAssignment in syllAssignments track by syllAssignment._id"
                          style="border: 1px solid black; margin: 10px; height: 130px;" ng-click="selectedSyllAss(syllAssignment)">
                         <h4>{{syllAssignment.objectName}}</h4>
 
