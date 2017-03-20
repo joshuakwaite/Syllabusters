@@ -1,26 +1,27 @@
-<div class="container-fluid">
+<div class="container-fluid" >
 <div class="row">
     <div class="col-xs-12">
         <h1>Week View</h1>
     </div>
-</div>
-    <div class="row">
+</div >
+    <div class="row" ng-repeat="day in week">
         <div class="col-xs-12">
-            <h2>Monday</h2>
+            <h2>{{ day | date: 'EEEE' }}</h2>
+            <div class="row">
+                <div class="col-xs-3">
+                    <h3>Topics</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Warmups</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Exercises</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Projects</h3>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-3">
-            <h3>Topics</h3>
-        </div>
-        <div class="col-xs-3">
-            <h3>Warmups</h3>
-        </div>
-        <div class="col-xs-3">
-            <h3>Exercises</h3>
-        </div>
-        <div class="col-xs-3">
-            <h3>Projects</h3>
-        </div>
-    </div>
+
 </div>
