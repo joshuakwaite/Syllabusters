@@ -17,6 +17,7 @@
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.8.6",
     "morgan": "^1.8.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "unfurl": "^0.1.0"
   }
 }

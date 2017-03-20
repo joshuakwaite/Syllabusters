@@ -9,7 +9,6 @@ angular.module("scotchApp")
     });
 
     $scope.populate = function(object) {
-        console.log(object)
         syllabiService.saveCourse(object)
     }
 

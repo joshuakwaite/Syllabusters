@@ -7,7 +7,7 @@ var userSchema = new Schema ({
 
     name: {
         type: String,
-        require: true
+        required: true
     },
     username: {
         type: String,
@@ -19,7 +19,10 @@ var userSchema = new Schema ({
         type: String,
         required: true
     },
-    email: String,
+    email: {
+        type: String,
+        required: true
+    },
     admin: {
         type: Boolean,
         default: false
