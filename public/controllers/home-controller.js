@@ -12,7 +12,7 @@ scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService
 
     httpService.getUnfurl('http://coursework.vschool.io/git-commands-and-workflows-cheat-sheet/').then(function(response) {
         $scope.test = $sce.trustAsHtml(response.data.html);
-        // console.log(response)
+        console.log(response)
     })
 
 }]);
