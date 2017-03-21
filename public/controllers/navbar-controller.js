@@ -2,10 +2,13 @@ angular.module("scotchApp")
 
 .controller("navbarController", ["$scope", "httpService", "syllabiService", function ($scope, httpService, syllabiService) {
 
+    httpService.getSyllabi().then(function (response) {
+        $scope.name = response.data;
+        return response.data.name
+    });
 
     $scope.$on('$locationChangeStart', function () {
-
-        $scope.syllabi = httpService.getSyllabi().then(function (response) {
+        httpService.getSyllabi().then(function (response) {
             $scope.name = response.data;
             return response.data.name
         });

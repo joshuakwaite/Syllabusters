@@ -4,154 +4,163 @@
 
             <!--Today's Agenda-->
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="table-box text-center" style="border: 1px solid grey; margin: 15px;">
-                        <h3 style="text-decoration: underline;">Today's Agenda</h3>
-                        <div class="table-container">
-                            <table class="table text-left">
-                                <thead>
-                                <tr>
-                                    <th>Type:</th>
-                                    <th>Name:</th>
-                                    <th>Start Date:</th>
-                                    <th>Due Date:</th>
-                                    <th>Notes:</th>
-                                    <th class="zero"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr ng-repeat="assignment in syllabiService.todaysAssignments | orderBy: '-objectType' track by assignment._id">
-                                    <td class="capitalize grabbable" data-toggle="modal"
-                                        data-target="#myModal{{assignment._id}}"
-                                        ng-click="openedModal(assignment.courseLink)">{{assignment.objectType}}
-                                    </td>
-                                    <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                        ng-click="openedModal(assignment.courseLink)">
-                                        {{assignment.objectName}}
-                                    </td>
-                                    <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                        ng-click="openedModal(assignment.courseLink)">{{assignment.startDate | date: 'mediumDate'}}
-                                    </td>
-                                    <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                        ng-click="openedModal(assignment.courseLink)">{{assignment.dueDate}}
-                                    </td>
-                                    <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                        ng-click="openedModal(assignment.courseLink)">{{assignment.note}}
-                                    </td>
-                                    <td class="zero">
-                                        <!--MODAL-->
-                                        <div class="modal fade" id="myModal{{assignment._id}}" role="dialog">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <!--MODAL HEADER-->
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close"
-                                                                data-dismiss="modal"
-                                                                ng-click="toggleEdit = false">&times;</button>
-                                                        <h4 class="modal-title">{{app.companyName}} Application</h4>
-                                                    </div>
-                                                    <!--MODAL BODY-->
-                                                    <div class="modal-body">
-                                                        <div ng-bind-html="test"></div>
-                                                    </div>
-                                                    <!--MODAL FOOTER-->
-                                                    <div class="modal-footer">
 
-                                                        <button class="btn btn-danger"
-                                                                data-dismiss="modal"> Close
-                                                        </button>
 
+
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a showtab="showTab" href="#dayView" ng-click="selected = 'selectedTwo'">Day View</a></li>
+                    <li><a showtab="showTab" href="#dueSoon" ng-click="selected = 'selectedOne'">Due Soon</a></li>
+                </ul>
+
+                <div class="calendarNav tab-pane fade in active" id="dayView" ng-hide="selected == 'selectedOne'">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-box text-center">
+                                <h3 style="text-decoration: underline;">Today's Agenda</h3>
+                                <div class="table-container">
+                                    <table class="table text-left">
+                                        <thead>
+                                        <tr>
+                                            <th>Type:</th>
+                                            <th>Name:</th>
+                                            <th>Due Date:</th>
+                                            <th>Notes:</th>
+                                            <th class="zero"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="assignment in todaysAssignments | orderBy: '-objectType' track by assignment._id">
+                                            <td class="capitalize grabbable" data-toggle="modal"
+                                                data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.objectType}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">
+                                                {{assignment.objectName}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.dueDate | date: 'mediumDate'}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.note}}
+                                            </td>
+                                            <td class="zero">
+                                                <!--MODAL-->
+                                                <div class="modal fade" id="myModal{{assignment._id}}" role="dialog">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <!--MODAL HEADER-->
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal"
+                                                                        ng-click="toggleEdit = false">&times;</button>
+                                                                <h4 class="modal-title">{{app.companyName}} Application</h4>
+                                                            </div>
+                                                            <!--MODAL BODY-->
+                                                            <div class="modal-body">
+                                                                <div ng-bind-html="test"></div>
+                                                            </div>
+                                                            <!--MODAL FOOTER-->
+                                                            <div class="modal-footer">
+
+                                                                <button class="btn btn-danger"
+                                                                        data-dismiss="modal"> Close
+                                                                </button>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div id="dueSoon" class="tab-pane fade" ng-hide="selected == 'selectedTwo'">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-box text-center">
+                                <h3 style="text-decoration: underline;">Due Soon</h3>
+                                <div class="table-container">
+                                    <table class="table text-left">
+                                        <thead>
+                                        <tr>
+                                            <th>Type:</th>
+                                            <th>Name:</th>
+                                            <th>Start Date:</th>
+                                            <th>Due Date:</th>
+                                            <th>Notes:</th>
+                                            <th class="zero"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="assignment in dueSoon track by assignment._id">
+                                            <td class="capitalize grabbable" data-toggle="modal"
+                                                data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.objectType}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">
+                                                {{assignment.objectName}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.startDate | date: 'mediumDate'}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.dueDate | date: 'mediumDate'}}
+                                            </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.note}}
+                                            </td>
+                                            <td class="zero">
+                                                <!--MODAL-->
+                                                <div class="modal fade" id="myModal{{assignment._id}}" role="dialog">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <!--MODAL HEADER-->
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal"
+                                                                        ng-click="toggleEdit = false">&times;</button>
+                                                                <h4 class="modal-title">{{app.companyName}} Application</h4>
+                                                            </div>
+                                                            <!--MODAL BODY-->
+                                                            <div class="modal-body">
+                                                                <div ng-bind-html="test"></div>
+                                                            </div>
+                                                            <!--MODAL FOOTER-->
+                                                            <div class="modal-footer">
 
-        <!--DUE SOON-->
+                                                                <button class="btn btn-danger"
+                                                                        data-dismiss="modal"> Close
+                                                                </button>
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="table-box text-center" style="border: 1px solid grey; margin: 15px;">
-                    <h3 style="text-decoration: underline;">Due Soon</h3>
-                    <div class="table-container">
-                        <table class="table text-left">
-                            <thead>
-                            <tr>
-                                <th>Type:</th>
-                                <th>Name:</th>
-                                <th>Start Date:</th>
-                                <th>Due Date:</th>
-                                <th>Notes:</th>
-                                <th class="zero"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="assignment in assignments track by assignment._id">
-                                <td class="capitalize grabbable" data-toggle="modal"
-                                    data-target="#myModal{{assignment._id}}"
-                                    ng-click="openedModal(assignment.courseLink)">{{assignment.objectType}}
-                                </td>
-                                <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                    ng-click="openedModal(assignment.courseLink)">
-                                    {{assignment.objectName}}
-                                </td>
-                                <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                    ng-click="openedModal(assignment.courseLink)">{{assignment.startDate}}
-                                </td>
-                                <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                    ng-click="openedModal(assignment.courseLink)">{{assignment.dueDate}}
-                                </td>
-                                <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                    ng-click="openedModal(assignment.courseLink)">{{assignment.note}}
-                                </td>
-                                <td class="zero">
-                                    <!--MODAL-->
-                                    <div class="modal fade" id="myModal{{assignment._id}}" role="dialog">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <!--MODAL HEADER-->
-                                                <div class="modal-header">
-                                                    <button type="button" class="close"
-                                                            data-dismiss="modal"
-                                                            ng-click="toggleEdit = false">&times;</button>
-                                                    <h4 class="modal-title">{{app.companyName}} Application</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!--MODAL BODY-->
-                                                <div class="modal-body">
-                                                    <div ng-bind-html="test"></div>
-                                                </div>
-                                                <!--MODAL FOOTER-->
-                                                <div class="modal-footer">
-
-                                                    <button class="btn btn-danger"
-                                                            data-dismiss="modal"> Close
-                                                    </button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
-            </div>
         </div>
 
 
-    </div>
 </div>
 </div>
-
+</div>
 
 

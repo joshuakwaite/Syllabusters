@@ -1,17 +1,17 @@
 angular.module("scotchApp")
 
-    .service('syllabiService',["httpService", function (httpService){
-
-        var savedCourse;
+    .service('syllabiService', ["httpService", function (httpService) {
+        var self = this;
+        this.savedCourse;
 
         this.saveCourse = function (object) {
-             httpService.getOneSyllabus(object).then(function(response) {
-                 savedCourse = response.data
-            })
+            return httpService.getOneSyllabus(object).then(function (response) {
+                self.savedCourse = response.data
+            });
         };
 
-        this.returnSavedCourse = function() {
-            return savedCourse
+        this.returnSavedCourse = function () {
+            return self.savedCourse;
         };
 
     }]);

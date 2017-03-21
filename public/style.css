@@ -93,3 +93,6 @@ input {
 .table-container {
     margin: 25px;
 }
+.activated {
+    background-color: #eeeeee;
+}
