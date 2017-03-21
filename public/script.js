@@ -29,11 +29,7 @@ scotchApp.config(function ($routeProvider) {
         .when('/combine', {
             templateUrl: 'pages/combine.html',
             controller: "combineController"
-        })
-        .when('/view-syllabus', {
-            templateUrl: 'pages/view-syllabus.html',
-            controller: "viewSyllabusController"
-        })
+        });
 });
 
 
