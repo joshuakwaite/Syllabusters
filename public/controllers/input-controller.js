@@ -6,8 +6,7 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
     $scope.addObject = function (object) {
         var notCapitalizedObject = object;
            notCapitalizedObject.objectType = notCapitalizedObject.objectType.toLowerCase();
-
-
+        
         httpService.postAssignment(notCapitalizedObject).then(function(response) {
             console.log(response.data)
         });
