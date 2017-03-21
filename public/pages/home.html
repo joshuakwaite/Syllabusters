@@ -21,7 +21,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="assignment in todaysAssignments | orderBy: '-objectType' track by assignment._id">
+                                <tr ng-repeat="assignment in syllabiService.todaysAssignments | orderBy: '-objectType' track by assignment._id">
                                     <td class="capitalize grabbable" data-toggle="modal"
                                         data-target="#myModal{{assignment._id}}"
                                         ng-click="openedModal(assignment.courseLink)">{{assignment.objectType}}
