@@ -6,7 +6,7 @@ var assignmentSchema = new Schema ({
         objectType: String,
         objectName: String,
         week: String,
-        link: String,
+        courseLink: String,
         dayInWeek: Number,
         description: String,
         dueDate: Date,

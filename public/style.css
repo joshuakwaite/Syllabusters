@@ -66,3 +66,11 @@ input {
 .grabbable {
     cursor: pointer;
 }
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.table-container {
+    margin: 25px;
+}

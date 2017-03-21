@@ -21,8 +21,14 @@ var courseSchema = new Schema ({
         required: true
     },
     assignments: [{
-        type: Schema.Types.ObjectId,
-        ref: "Assignment"
+        objectType: String,
+        objectName: String,
+        week: String,
+        courseLink: String,
+        dayInWeek: Number,
+        description: String,
+        dueDate: Date,
+        startDate: Date
     }],
     weekNotes: [{
         weekNumber: Number,
