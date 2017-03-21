@@ -84,4 +84,12 @@ input {
 
 .navbar-default {
     height: auto
+}}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.table-container {
+    margin: 25px;
 }
