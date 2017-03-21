@@ -1,30 +1,48 @@
 var scotchApp = angular.module("scotchApp");
 
-scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService", "$location", function ($scope, httpService, syllabiService, $location) {
+scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService", "$location", "$filter", function ($scope, httpService, syllabiService, $location, $filter) {
 
-    function getWeek(fromDate) {
-        var sunday = new Date(fromDate.setDate(fromDate.getDate() - fromDate.getDay()))
-            , result = [new Date(sunday)];
-        while (sunday.setDate(sunday.getDate() + 1) && sunday.getDay() !== 0) {
-            result.push(new Date(sunday));
-        }
-        return result;
-    }
+    $scope.syllabiService = syllabiService;
 
-    $scope.week = getWeek(new Date());
+    $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
 
 
-    function retrieve() {
-        if (syllabiService.returnSavedCourse() == undefined) {
-            alert("Please select a course");
-            $location.path("/home");
-        } else {
-            var course = syllabiService.returnSavedCourse();
-            $scope.assignments = course.assignments;
+        function getWeek(fromDate) {
+            var sunday = new Date(fromDate.setDate(fromDate.getDate() - fromDate.getDay()))
+                , result = [new Date(sunday)];
+            while (sunday.setDate(sunday.getDate() + 1) && sunday.getDay() !== 0) {
+                result.push(new Date(sunday));
+            }
+
+            return result;
         }
 
-    }
-    retrieve();
+        $scope.week = getWeek(new Date());
+
+
+        var data = newVal;
+
+        $scope.work = [];
+
+        function homework() {
+
+            for (var i = 0; i < data.assignments.length; i++) {
+                var dayOfWeek = $filter('date')(data.assignments[i].startDate, "EEEE");
+                data.assignments[i].dayOfWeek = dayOfWeek;
+                $scope.work.push(data.assignments[i]);
+                console.log($scope.work);
+
+
+            }
+        }
+
+        homework();
+
+
+
+    }, true);
+
+
 
 
 }]);
