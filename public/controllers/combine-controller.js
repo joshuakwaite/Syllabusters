@@ -47,12 +47,12 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
     populateRight();
 
    $scope.selected = function (object) {
+
        var syllabus = syllabiService.returnSavedCourse();
 
-       syllabus.assignments.push(object);
+       syllabus.assignments.push(object._id);
 
-       httpService.editSyllabus(syllabus).then(function(response) {
-
+       httpService.putSyllabusAssignment(syllabus).then(function(response) {
            populateRight();
            populateLeft();
            })
@@ -62,7 +62,7 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
 
        var syllabus = syllabiService.returnSavedCourse();
 
-       syllabus.assignments.splice(object, 1);
+       syllabus.assignments.splice(object._id, 1);
 
        httpService.putSyllabusAssignment(syllabus).then(function(response) {
            populateRight();
