@@ -84,7 +84,7 @@ input {
 
 .navbar-default {
     height: auto
-}}
+}
 
 .capitalize {
     text-transform: capitalize;
@@ -92,4 +92,7 @@ input {
 
 .table-container {
     margin: 25px;
+}
+.activated {
+    background-color: #eeeeee;
 }

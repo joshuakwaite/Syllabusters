@@ -8,8 +8,8 @@
             <li class="dropdown" ng-show="userService.isAuthenticated()">
                 <a class="dropdown-toggle" data-toggle="dropdown">{{test}}<b class="caret" ></b></a>
                 <ul class="dropdown-menu">
-                    <li ng-repeat="syllabus in name">
-                        <a ng-click="populate(syllabus); current = syllabus.name">{{syllabus.name}}</a>
+                    <li ng-repeat="syllabus in name track by syllabus._id">
+                        <a ng-click="populate(syllabus); current=syllabus.name">{{syllabus.name}}</a>
                     </li>
                 </ul>
             </li>
