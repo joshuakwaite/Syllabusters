@@ -20,6 +20,17 @@ h1 {
     font-family: "Nanum Myeongjo"
 }
 
+h3 {
+    margin-bottom: 50pt
+}
+
+h5 {
+    text-align: center;
+    font-size: 40pt;
+    color: red;
+    
+}
+
 .homeImage {
     width: 100%;
 }
@@ -29,6 +40,7 @@ div {
 }
 
 .btn {
+    
     width: 100%;
     margin-top: 50pt;
     background-color: #003E6F;
@@ -62,6 +74,14 @@ input {
     font-size: 15pt
 }
 
+.navBarText {
+    color: red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 .navbar-default {
-    background-color: pink;
+    height: auto
 }
