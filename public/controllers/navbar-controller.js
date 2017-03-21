@@ -10,6 +10,11 @@ angular.module("scotchApp")
 
     $scope.populate = function(object) {
         syllabiService.saveCourse(object)
+        console.log(object)
+        var objectTest = object
+        $scope.test = objectTest.name
     }
+    
+    $scope.test = "Select Syllabus"
 
 }]);

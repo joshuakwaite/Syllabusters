@@ -1,6 +1,7 @@
 <label for="selector"></label>
 
 <div class="container">
+   <h1>Add Assignment</h1>
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-2">
@@ -16,8 +17,8 @@
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            {{selected.name}} Name:
-            <input type="text" ng-model="selected.objectName">
+            Name:
+            <input class="form-control" type="text" ng-model="selected.objectName">
         </div>
         <div class="col-xs-4"></div>
     </div>
@@ -26,7 +27,7 @@
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
             URL:
-            <input type="url" id="url" ng-model="selected.url">
+            <input class="form-control" type="url" id="url" ng-model="selected.url">
         </div>
         <div class="col-xs-4"></div>
     </div>
@@ -35,7 +36,7 @@
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
             Order:
-            <input type="number" id="order" ng-model="selected.order">
+            <input class="form-control" type="number" id="order" ng-model="selected.order">
         </div>
         <div class="col-sx-4"></div>
     </div>
@@ -44,14 +45,14 @@
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
             Lesson Description:
-            <textarea name="lesson" id="description" cols="48" rows="5" ng-model="selected.description"></textarea>
+            <textarea class="form-control" name="lesson" id="description" cols="48" rows="5" ng-model="selected.description"></textarea>
         </div>
         <div class="col-xs-4"></div>
     </div>
     <div class="row">
         <div class="col-xs-5"></div>
         <div class="col-xs-2">
-            <button ng-click="addObject(selected)" class="btn btn-md btn-primary">Add to Syllabus</button>
+            <button ng-click="addObject(selected)" class="btn btn-md btn-success">Add to Syllabus</button>
         </div>
         <div class="col-xs-5"></div>
     </div>
