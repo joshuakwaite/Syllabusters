@@ -1,10 +1,11 @@
-<div class="container-fluid">
+<div class="combine">
+   <div class="container-fluid">
     <div class="row">
         <div class="col-xs-6" style="">
            <h3>All Assignments</h3>
             <div class="row">
             <div class="col-xs-3 grabbable" ng-repeat="assignment in assignments track by assignment._id"
-            style="border: 1px solid black; margin: 10px; height: 130px; background-color: blue; box-shadow: 5px 5px 3px #000000;" ng-click="selected(assignment)">
+            style="border: 5px solid black; margin: 10px; height: 130px; background-color: #FF6360; box-shadow: 5px 5px 3px #000000;" ng-click="selected(assignment)">
             <h4>{{assignment.objectName}}</h4>
 
                     <p>{{assignment.objectType}}</p>
@@ -17,7 +18,7 @@
                <h3>Syllabus Assignments</h3>
                 <div class="row">
                     <div class="col-xs-3 grabbable" ng-repeat="syllAssignment in syllAssignments track by syllAssignment._id"
-                         style="border: 1px solid black; margin: 10px; height: 130px; background-color: red; box-shadow: 5px 5px 3px #000000;" ng-click="selectedSyllAss(syllAssignment)">
+                         style="border: 5px solid black; margin: 10px; height: 130px; background-color: #FF6360; box-shadow: 5px 5px 3px #000000;" ng-click="selectedSyllAss(syllAssignment)">
                         <h4>{{syllAssignment.objectName}}</h4>
 
                     <p>{{syllAssignment.objectType}}</p>
@@ -29,3 +30,56 @@
     </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="combine">
+   <div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6" style="">
+           <h3>All Assignments</h3>
+            <div class="row">
+            <div class="col-xs-3 grabbable" ng-repeat="assignment in assignments track by assignment._id"
+            style="border: 1px solid black; margin: 10px; height: 130px; background-color: #003E6F; box-shadow: 5px 5px 3px #000000;" ng-click="selected(assignment)">
+            <h4>{{assignment.objectName}}</h4>
+
+                    <p>{{assignment.objectType}}</p>
+                    <p>{{assignment.week}}</p>
+
+                </div>
+            </div>
+        </div>
+            <div class="col-xs-6" style="">
+               <h3>Syllabus Assignments</h3>
+                <div class="row">
+                    <div class="col-xs-3 grabbable" ng-repeat="syllAssignment in syllAssignments track by syllAssignment._id"
+                         style="border: 1px solid black; margin: 10px; height: 130px; background-color: #003E6F; box-shadow: 5px 5px 3px #000000;" ng-click="selectedSyllAss(syllAssignment)">
+                        <h4>{{syllAssignment.objectName}}</h4>
+
+                    <p>{{syllAssignment.objectType}}</p>
+                    <p>{{syllAssignment.week}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+-->

@@ -1,43 +1,42 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-9">
-            <h2>Syllabus Name: {{course.name}}</h2>
+<div class="viewSyllabus">
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-xs-1"></div>
+            <div class="col-xs-9">
+                <h2>Syllabus Name: {{course.name}}</h2>
 
-        <h3>Course Start: {{course.startDate | date: longDate}}</h3>
-        <h3>Course End: {{course.endDate | date: longDate}}</h3>
-        <h4>Instructor: {{course.teacher}}</h4>
-        <ul>
-            <li ng-repeat="assignment in course.assignments" ng-click="editAssignment()">
+                <h3>Course Start: {{course.startDate | date: longDate}}</h3>
+                <h3>Course End: {{course.endDate | date: longDate}}</h3>
+                <h4>Instructor: {{course.teacher}}</h4>
                 <ul>
-                    <li><strong>Assignment Name: {{assignment.objectName}}</strong></li>
-                    <input ng-if="assignment.objectName" type="text" class="form-control" ng-model="assignment.objectName">
+                    <li ng-repeat="assignment in course.assignments" ng-click="editAssignment()">
+                        <ul>
+                            <li><strong>Assignment Name: {{assignment.objectName}}</strong></li>
+                            <input ng-if="assignment.objectName" type="text" class="form-control" ng-model="assignment.objectName">
 
-                    <li>Assignment Type: {{assignment.objectType}}</li>
+                            <li>Assignment Type: {{assignment.objectType}}</li>
 
-                    <li ng-if="assignment.dayInWeek">Assignment Day in Week: {{assignment.dayInWeek}}</li>
-                    <input ng-if="assignment.dayInWeek" type="text" class="form-control" ng-model="assignment.dayInWeek">
+                            <li ng-if="assignment.dayInWeek">Assignment Day in Week: {{assignment.dayInWeek}}</li>
+                            <input ng-if="assignment.dayInWeek" type="text" class="form-control" ng-model="assignment.dayInWeek">
 
-                    <li ng-if="assignment.description">Assignment Description: {{assignment.description}}</li>
-                    <input ng-if="assignment.description" type="text" class="form-control" ng-model="assignment.description">
+                            <li ng-if="assignment.description">Assignment Description: {{assignment.description}}</li>
+                            <input ng-if="assignment.description" type="text" class="form-control" ng-model="assignment.description">
 
-                    <li>Assignment Due Date: {{assignment.dueDate}}</li>
-                    <input type="date" class="form-control" ng-model="assignment.dueDate">
+                            <li>Assignment Due Date: {{assignment.dueDate}}</li>
+                            <input type="date" class="form-control" ng-model="assignment.dueDate">
 
-                    <li>Assignment Start Date: {{assignment.startDate}}</li>
-                    <input type="date" class="form-control" ng-model="assignment.startDate">
+                            <li>Assignment Start Date: {{assignment.startDate}}</li>
+                            <input type="date" class="form-control" ng-model="assignment.startDate">
 
-                    <li>Assignment link: {{assignment.courseLink}}</li>
-                    <input type="text" class="form-control" ng-model="assignment.courseLink">
+                            <li>Assignment link: {{assignment.courseLink}}</li>
+                            <input type="text" class="form-control" ng-model="assignment.courseLink">
+                        </ul>
+                        <button ng-click="editAssignments(assignment)" class="btn btn-success">Submit Edit</button>
+                        <br>
+                    </li>
                 </ul>
-                <button ng-click="editAssignments(assignment)" class="btn btn-success">Submit Edit</button>
-                <br>
-            </li>
-        </ul>
-        </div>
+            </div>
 
+        </div>
     </div>
 </div>
-
-
-
-

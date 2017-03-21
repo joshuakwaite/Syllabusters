@@ -1,65 +1,66 @@
-<div>
-    <h1>Signup</h1>
+<div class="signUp">
+    <div>
+        <h1>Signup</h1>
+    </div>
+
+    <p class="signup">Use the form below to create your free Syllabuster account:</p>
+
+    <form>
+        <div class="form-group">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Name:
+                        <input class="form-control" ng-model="user.name">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Username:
+                        <input class="form-control" ng-model="user.username">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Email Address:
+                        <input class="form-control" ng-model="user.email">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Password:
+                        <input class="form-control" type="password" id="password" ng-model="user.password">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        Repeat Password:
+                        <input type="password" id="passwordRepeat" class="form-control" ng-model="passwordRepeat">
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <br>
+                <span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5"></div>
+            <div class="col-xs-2">
+                <button ng-click='signup(user)' class='btn'>Submit</button>
+            </div>
+            <div class="col-xs-5"></div>
+        </div>
+    </form>
 </div>
-
-<p class="signup">Use the form below to create your free Syllabuster account:</p>
-
-<form>
-    <div class="form-group">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Name:
-                    <input class="form-control" ng-model="user.name">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Username:
-                    <input class="form-control" ng-model="user.username">
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Email Address:
-                    <input class="form-control" ng-model="user.email">
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Password:
-                    <input class="form-control" type="password" id="password" ng-model="user.password">
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    Repeat Password:
-                    <input type="password" id="passwordRepeat" class="form-control" ng-model="passwordRepeat">
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <br>
-            <span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-5"></div>
-        <div class="col-xs-2">
-            <button ng-click='signup(user)' class='btn'>Submit</button>
-        </div>
-        <div class="col-xs-5"></div>
-    </div>
-</form>
-
