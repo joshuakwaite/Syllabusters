@@ -3,6 +3,8 @@ var scotchApp = angular.module("scotchApp");
 
 scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService', '$sce', '$filter', function ($scope, httpService, syllabiService, $sce, $filter) {
 
+    $scope.selected = "";
+
     $scope.todaysAssignments = [];
     $scope.dueSoon = [];
     $scope.syllabiService = syllabiService;
