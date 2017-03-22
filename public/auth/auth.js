@@ -6,6 +6,10 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "auth/signup/signup.html",
             controller: "SignupController"
         })
+        .when("/teacherSignup", {
+            templateUrl: "auth/signup/teacher-signup.html",
+            controller: "TeacherSignupController"
+        })
         .when("/login", {
             templateUrl: "auth/login/login.html",
             controller: "LoginController"
@@ -40,6 +44,10 @@ app.service("UserService", ["$http", "$location", "TokenService", function ($htt
         return $http.post("/auth/signup", user);
     };
 
+    this.adminSignup = function (user) {
+        return $http.post("/auth/signup/admin", user);
+    };
+
     this.login = function (user) {
         return $http.post("/auth/login", user).then(function (response) {
             TokenService.setToken(response.data.token);
@@ -70,7 +78,7 @@ app.service("AuthInterceptor", ["$q", "$location", "TokenService", function ($q,
     this.responseError = function(response) {
         if (response.status === 401) {
             TokenService.removeToken();
-            $location.path("/login");
+            // $location.path("/login");
         }
         return $q.reject(response);
     };

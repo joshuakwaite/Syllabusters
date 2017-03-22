@@ -22,6 +22,7 @@
                     <li><a href="#!/fullsyllabus">View Syllabus</a></li>
                 </ul>
             </li>
+
             <li ng-hide="userService.isAuthenticated()"><a href="#!/signup">Sign Up</a></li>
             <li ng-hide="userService.isAuthenticated()"><a href="#!/login">Login</a></li>
             <li ng-show="userService.isAuthenticated()"><a href="#!/logout">Logout</a></li>
