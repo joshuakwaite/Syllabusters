@@ -3,11 +3,14 @@ var scotchApp = angular.module("scotchApp");
 
 scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService', '$sce', '$filter', function ($scope, httpService, syllabiService, $sce, $filter) {
 
+    $scope.selected = "";
+
     $scope.todaysAssignments = [];
     $scope.dueSoon = [];
     $scope.syllabiService = syllabiService;
 
     $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
+        if (newVal !== undefined) {
         $scope.todaysAssignments = [];
         $scope.dueSoon = [];
 
@@ -30,6 +33,7 @@ scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService
             if (date >= newStartDate && date <= newDueDate) {
                 $scope.dueSoon.push(newVal.assignments[i])
             }
+        }
         }
     }, true);
 

@@ -6,6 +6,7 @@ scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService
 
     $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
 
+        if (newVal !== undefined) {
 
         function getWeek(fromDate) {
             var sunday = new Date(fromDate.setDate(fromDate.getDate() - fromDate.getDay()))
@@ -30,7 +31,6 @@ scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService
                 var dayOfWeek = $filter('date')(data.assignments[i].startDate, "fullDate");
                 data.assignments[i].dayOfWeek = dayOfWeek;
                 $scope.work.push(data.assignments[i]);
-                console.log($scope.work);
 
 
             }
@@ -38,7 +38,7 @@ scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService
 
         homework();
 
-
+            }
 
     }, true);
 

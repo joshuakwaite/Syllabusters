@@ -29,6 +29,22 @@ authRoutes.post("/signup", function (req, res) {
         if (err) return res.status(500).send(err);
         if (existingUser.length) return res.send({success: false, message: "That username is already taken."});
         else {
+            req.body.admin = false;
+            var newUser = new User(req.body);
+            newUser.save(function (err, userObj) {
+                if (err) return res.status(500).send(err);
+                res.send({user: userObj, message: "Successfully created new user.", success: true});
+            });
+        }
+    })
+});
+
+authRoutes.post("/signup/admin", function (req, res) {
+    User.find({username: req.body.username}, function (err, existingUser) {
+        if (err) return res.status(500).send(err);
+        if (existingUser.length) return res.send({success: false, message: "That username is already taken."});
+        else {
+            req.body.admin = true;
             var newUser = new User(req.body);
             newUser.save(function (err, userObj) {
                 if (err) return res.status(500).send(err);
