@@ -1,6 +1,6 @@
 var app = angular.module("scotchApp.Auth");
 
-app.controller("TeacherSignupController", ["$scope", "UserService", function ($scope, UserService) {
+app.controller("TeacherSignupController", ["$scope", "$location", "UserService", function ($scope, $location, UserService) {
 
     $scope.passwordMessage = "";
 
@@ -8,7 +8,7 @@ app.controller("TeacherSignupController", ["$scope", "UserService", function ($s
         if (user.password !== $scope.passwordRepeat) {
             $scope.passwordMessage = "Passwords do not match.";
         } else {
-            UserService.signup(user).then(function (response) {
+            UserService.adminSignup(user).then(function (response) {
                 $location.path("/login");
             }, function (response) {
                 alert("All fields required!");
