@@ -2,44 +2,82 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Week View</h1>
+
+                <div class="table-box text-center">
+                    <h3 style="text-decoration: underline;">Week View</h3>
+                    <div class="table-container">
+
+
+                        <table class="table text-left">
+                            <thead>
+                            <tr>
+                                <th>Day:</th>
+                                <th>Lessons:</th>
+                                <th>Warmups:</th>
+                                <th>Exercises:</th>
+                                <th>Projects:</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="day in week">
+                                <td>{{ day | date: 'EEEE' }}</td>
+                                <td >
+                                    <div  data-toggle="modal" class="grabbable" data-target="#weekModal"
+                                          ng-click="openedModal(assignment.courseLink)" ng-repeat="assignment in work | objectType:'lesson' | dayOfWeek: (day | date: 'fullDate') track by assignment._id">
+                                        {{ assignment.objectName }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div data-toggle="modal" class="grabbable" data-target="#weekModal"
+                                         ng-click="openedModal(assignment.courseLink)" ng-repeat="assignment in work | objectType:'warmup' | dayOfWeek: (day | date: 'fullDate') track by assignment._id">
+                                        {{ assignment.objectName }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div data-toggle="modal" class="grabbable" data-target="#weekModal"
+                                         ng-click="openedModal(assignment.courseLink)" ng-repeat="assignment in work | objectType:'exercise' | dayOfWeek: (day | date: 'fullDate') track by assignment._id">
+                                        {{ assignment.objectName }}
+                                    </div>
+                                </td>
+                                <td >
+                                    <div data-toggle="modal" class="grabbable" data-target="#weekModal"
+                                         ng-click="openedModal(assignment.courseLink)" ng-repeat="assignment in work | objectType:'project' | dayOfWeek: (day | date: 'fullDate') track by assignment._id">
+                                        {{ assignment.objectName }}
+                                    </div>
+                                </td>
+                                <td class="zero">
+                                    <!--MODAL-->
+                                    <div class="modal fade" id="weekModal" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <!--MODAL HEADER-->
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                            data-dismiss="modal"
+                                                            ng-click="toggleEdit = false">&times;</button>
+                                                    <h4 class="modal-title">{{assignment.objectName}}</h4>
+                                                </div>
+                                                <!--MODAL BODY-->
+                                                <div class="modal-body">
+                                                    <div ng-bind-html="test"></div>
+                                                </div>
+                                                <!--MODAL FOOTER-->
+                                                <div class="modal-footer">
+
+                                                    <button class="btn btn-danger"
+                                                            data-dismiss="modal"> Close
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" ng-repeat="day in week">
-        <div class="col-xs-12">
-            <h2>{{ day | date: 'EEEE' }}</h2>
-            <div class="row">
-                <div class="col-xs-3">
-                    <h3>Lesson</h3>
-                    <ul>
-                        <li ng-repeat="assignment in work | objectType:'lesson' | dayOfWeek: (day | date: 'EEEE')"> {{ assignment.objectName }}
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xs-3">
-                    <h3>Warmups</h3>
-                    <ul>
-                        <li ng-repeat="assignment in work | objectType:'warmup' | dayOfWeek: (day | date: 'EEEE')"> {{ assignment.objectName }}</li>
-                    </ul>
-                </div>
-                <div class="col-xs-3">
-                    <h3>Exercises</h3>
-                    <ul>
-                        <li ng-repeat="assignment in work | objectType:'exercise' | dayOfWeek: (day | date: 'EEEE')"> {{ assignment.objectName }} </li>
-                    </ul>
-                </div>
-                <div class="col-xs-3">
-                    <h3>Projects</h3>
-                    <ul>
-                        <li ng-repeat="assignment in work | objectType:'project' | dayOfWeek: (day | date: 'EEEE')"> {{ assignment.objectName }}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr>
     </div>
 </div>
-
-
-
