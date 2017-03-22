@@ -1,5 +1,12 @@
-<nav class="navbar navbar-inverse">
-    <div class="container">
+<div class="container-fluid">
+    <div class="row white-background">
+        <div class="shadow text-center">
+            <img class="logo-image" src="/logo_v1.jpg">
+        </div>
+    </div>
+    
+    
+    <nav class="navbar-fixed-top navbar-inverse">
         <ul class="nav navbar-nav navbar-left">
             <li ng-show="userService.isAuthenticated()"><a href="#!/home">Home</a></li>
             <li ng-show="userService.isAuthenticated()"><a href="#!/weekView">Week View</a></li>
@@ -16,10 +23,10 @@
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" ng-show="userService.isAuthenticated()">Add<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#!/syllabus">New Syllabus</a></li>
-                    <li><a href="#!/input">New Syllabus Item</a></li>
-                    <li><a href="#!/combine">View Assignments</a></li>
-                    <li><a href="#!/fullsyllabus">View Syllabus</a></li>
+                    <li><a href="#!/syllabus">Create Syllabus</a></li>
+                    <li><a href="#!/input">Add Assignment</a></li>
+                    <li><a href="#!/combine">Add to Syllabus</a></li>
+                    <li><a href="#!/fullsyllabus">Edit Assignments</a></li>
                 </ul>
             </li>
 
@@ -27,5 +34,7 @@
             <li ng-hide="userService.isAuthenticated()"><a href="#!/login">Login</a></li>
             <li ng-show="userService.isAuthenticated()"><a href="#!/logout">Logout</a></li>
         </ul>
-    </div>
-</nav>
+    </nav>
+    
+    
+</div>
