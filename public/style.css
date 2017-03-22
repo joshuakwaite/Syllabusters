@@ -1,14 +1,17 @@
 body {
     background-color: #1AB0CC;
-    margin: 30px 0px;
+    /*    margin: 30px 0px;*/
     font-family: "Quicksand";
+    /*    position: fixed;*/
 }
-.navbar-default .navbar-nav > li.dropdown:hover > a, 
+
+.navbar-default .navbar-nav > li.dropdown:hover > a,
 .navbar-default .navbar-nav > li.dropdown:hover > a:hover,
 .navbar-default .navbar-nav > li.dropdown:hover > a:focus {
     background-color: rgb(231, 231, 231);
     color: rgb(85, 85, 85);
 }
+
 li.dropdown:hover > .dropdown-menu {
     display: block;
     z-index: -1
@@ -39,7 +42,6 @@ h5 {
     font-size: 60pt;
     color: #FF6360;
     font-family: "Quicksand";
-    
 }
 
 .homeImage {
@@ -51,7 +53,6 @@ div {
 }
 
 .btn {
-    
     width: 100%;
     margin-top: 50pt;
     background-color: #003E6F;
@@ -93,12 +94,18 @@ input {
     margin: 25px;
 }
 
+
+/*
 header {
     background-color: white;
     margin-top: -25pt;
-    height: 80pt;
-    align-content: center
-    
+    height: 90pt;
+}
+*/
+
+.white-background {
+    background-color: white;
+    min-height: 70px;
 }
 
 .today {
@@ -113,9 +120,12 @@ th {
     margin-top: 40pt
 }
 
-.navbar {
+.navbar-fixed-top {
     background-color: #003E6F;
-    color: white;
+    position: absolute;
+    min-width: 165px;
+    /*    margin-top: 80px*/
+    top: inherit;
 }
 
 .newSyllabus {
@@ -138,3 +148,18 @@ th {
     margin-top: 45pt
 }
 
+
+/*
+.nav-tabs li {
+    border: 1px solid white;
+    border-radius: 6px;
+    padding-right: 2px;
+    margin-right: 4px;
+}
+*/
+
+.logo-image {
+    min-width: 200px;
+    height: auto;
+    max-width: 25%;
+}
