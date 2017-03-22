@@ -1,5 +1,12 @@
-<nav class="navbar navbar-inverse">
-    <div class="container">
+<div class="container-fluid">
+    <div class="row white-background">
+        <div class="shadow text-center">
+            <img class="logo-image" src="/logo_v1.jpg">
+        </div>
+    </div>
+    
+    
+    <nav class="navbar-fixed-top navbar-inverse">
         <ul class="nav navbar-nav navbar-left">
             <li ng-show="userService.isAuthenticated()"><a href="#!/home">Home</a></li>
             <li ng-show="userService.isAuthenticated()"><a href="#!/weekView">Week View</a></li>
@@ -26,5 +33,7 @@
             <li ng-hide="userService.isAuthenticated()"><a href="#!/login">Login</a></li>
             <li ng-show="userService.isAuthenticated()"><a href="#!/logout">Logout</a></li>
         </ul>
-    </div>
-</nav>
+    </nav>
+    
+    
+</div>
