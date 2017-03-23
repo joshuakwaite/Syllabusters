@@ -20,3 +20,4 @@ angular.module("scotchApp")
         syllabiService.getOneSyllabus(object)
     };
 }]);
+

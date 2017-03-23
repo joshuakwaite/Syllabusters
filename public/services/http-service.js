@@ -43,6 +43,7 @@ angular.module("scotchApp")
             return $http.get("/api/assignment");
         };
 
+
         this.getOneAssignment = function(object) {
             return $http.get("/api/assignment/" + object._id)
         };

@@ -2,11 +2,13 @@ var app = angular.module("scotchApp");
 
 app.controller("viewSyllabusController", ["$scope", "syllabiService", "$location", function($scope, syllabiService, $location) {
 
+
     $scope.syllabiService = syllabiService;
 
     $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
 
         $scope.course = newVal;
+
 
         $scope.editAssignments = function (assignment) {
 
@@ -16,9 +18,11 @@ app.controller("viewSyllabusController", ["$scope", "syllabiService", "$location
                     syllabiService.editSyllabus(newVal).then(function(response) {
                         alert("Edit Successful")
                     });
+
                 }
             }
         };
+
 
     }, true);
 
