@@ -13,10 +13,10 @@ scotchApp.controller('signupController', function ($scope) {
 });
 
 
-scotchApp.controller('syllabusController',["$scope", "httpService", "$location", "$window", function($scope, httpService, $location, $window) {
+scotchApp.controller('syllabusController',["$scope", "syllabiService", "$location", "$window", function($scope, syllabiService, $location, $window) {
 
     $scope.addSyllabus = function(object) {
-        httpService.saveSyllabus(object).then(function(response) {
+        syllabiService.saveSyllabus(object).then(function(response) {
             console.log(response.data);
             $location.path("/input");
         });

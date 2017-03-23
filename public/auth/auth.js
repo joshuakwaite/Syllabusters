@@ -38,7 +38,7 @@ app.service("TokenService", ["$localStorage", function ($localStorage) {
     };
 }]);
 
-app.service("UserService", ["$http", "$location", "$localStorage", "TokenService", function ($http, $location, $localStorage, TokenService) {
+app.service("UserService", ["$http", "$location", "$localStorage", "TokenService", "syllabiService", function ($http, $location, $localStorage, TokenService, syllabiService) {
 
     this.signup = function (user) {
         return $http.post("/auth/signup", user);
@@ -58,6 +58,9 @@ app.service("UserService", ["$http", "$location", "$localStorage", "TokenService
     this.logout = function () {
         TokenService.removeToken();
         delete $localStorage.syllabusterUser;
+        delete $localStorage.savedCourse;
+        delete $localStorage.syllabi;
+        syllabiService.savedCourse = null;
         $location.path("/login");
     };
 

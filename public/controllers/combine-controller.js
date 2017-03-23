@@ -17,8 +17,8 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
                 allAssignmentIds.push(allAssignmentsData[i]._id);
                 allAssignments.push(allAssignmentsData[i]);
             }
-            httpService.getOneSyllabus(syllabiService.returnSavedCourse()).then(function (response) {
-                var syllAssignments = response.data.assignments;
+            syllabiService.getOneSyllabus(syllabiService.returnSavedCourse()).then(function (data) {
+                var syllAssignments = data.assignments;
                 for (var i = 0; i < syllAssignments.length; i++) {
                     addedAssignments.push(syllAssignments[i]._id)
                 }
@@ -28,7 +28,6 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
                         outputAssignments.push(allAssignments[i])
                     }
                 }
-
             });
 
             $scope.assignments = outputAssignments;
@@ -38,8 +37,8 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
 
 
     var populateRight = function () {
-        httpService.getOneSyllabus(syllabiService.returnSavedCourse()).then(function (response) {
-            $scope.syllAssignments = response.data.assignments
+        syllabiService.getOneSyllabus(syllabiService.returnSavedCourse()).then(function (data) {
+            $scope.syllAssignments = data.assignments
         });
     };
 
@@ -58,11 +57,11 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
 
         syllabus.assignments.push(object);
 
-        httpService.putSyllabusAssignment(syllabus).then(function (response) {
+        syllabiService.putSyllabusAssignment(syllabus).then(function (response) {
             populateRight();
             populateLeft();
-        })
-    }
+        });
+    };
 
     $scope.selectedSyllAss = function (object) {
 
@@ -70,13 +69,11 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
 
         syllabus.assignments.splice(object, 1);
 
-        httpService.putSyllabusAssignment(syllabus).then(function (response) {
+        syllabiService.putSyllabusAssignment(syllabus).then(function (response) {
             populateRight();
             populateLeft();
-        })
-
-    }
-
+        });
+    };
 }]);
 
 

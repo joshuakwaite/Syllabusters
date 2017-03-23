@@ -13,9 +13,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown" ng-show="userService.isAuthenticated()">
-                <a class="dropdown-toggle" data-toggle="dropdown">{{test}}<b class="caret" ></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown">{{ syllabiService.savedCourse.name || 'Select a Course' }}<b class="caret" ></b></a>
                 <ul class="dropdown-menu">
-                    <li ng-repeat="syllabus in name track by syllabus._id">
+                    <li ng-repeat="syllabus in syllabiService.syllabi track by syllabus._id">
                         <a ng-click="populate(syllabus); current=syllabus.name">{{syllabus.name}}</a>
                     </li>
                 </ul>

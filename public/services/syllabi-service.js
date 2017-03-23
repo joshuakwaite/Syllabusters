@@ -1,17 +1,46 @@
 angular.module("scotchApp")
 
-    .service('syllabiService', ["httpService", function (httpService) {
+    .service('syllabiService', ["$localStorage", "$http", function ($localStorage, $http) {
         var self = this;
-        this.savedCourse;
+        var courseUrl = "/api/course/";
 
-        this.saveCourse = function (object) {
-            return httpService.getOneSyllabus(object).then(function (response) {
-                self.savedCourse = response.data
-            });
-        };
+        this.savedCourse = $localStorage.savedCourse || {};
+        this.syllabi = $localStorage.syllabi || [];
+
+        // this.saveCourse = function (object) {
+        //     return httpService.getOneSyllabus(object)
+        // };
 
         this.returnSavedCourse = function () {
             return self.savedCourse;
+        };
+
+        this.getSyllabi = function () {
+            return $http.get(courseUrl).then(function(response) {
+                $localStorage.syllabi = response.data;
+                self.syllabi = response.data;
+                return response.data;
+            });
+        };
+
+        this.getOneSyllabus = function (object) {
+            return $http.get(courseUrl + object._id).then(function (response) {
+                $localStorage.savedCourse = response.data;
+                self.savedCourse = response.data;
+                return response.data;
+            });
+        };
+
+        this.saveSyllabus = function (syllabus) {
+            return $http.post("/api/course", syllabus)
+        };
+
+        this.editSyllabus = function (object) {
+            return $http.put("/api/course/" + object._id, object)
+        };
+
+        this.putSyllabusAssignment = function (object) {
+            return $http.put("/api/course/" + object._id, object)
         };
 
     }]);
