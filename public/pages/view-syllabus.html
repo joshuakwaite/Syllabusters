@@ -1,13 +1,12 @@
 <div class="viewSyllabus">
     <div class="container-fluid">
         <div class="row">
-           <div class="col-xs-1"></div>
-            <div class="col-xs-9">
-                <h2>Syllabus Name: {{course.name}}</h2>
-
-                <h3>Course Start: {{course.startDate | date: longDate}}</h3>
-                <h3>Course End: {{course.endDate | date: longDate}}</h3>
-                <h4>Instructor: {{course.teacher}}</h4>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h2 class="edits">Syllabus Name: {{course.name}}</h2>
+                <h3 class="edits">Course Start: {{course.startDate | date: longDate}}</h3>
+                <h3 class="edits">Course End: {{course.endDate | date: longDate}}</h3>
+                <h4 class="edits1">Instructor: {{course.teacher}}</h4>
                 <ul>
                     <li ng-repeat="assignment in course.assignments" ng-click="editAssignment()">
                         <ul>
@@ -30,13 +29,23 @@
 
                             <li>Assignment link: {{assignment.courseLink}}</li>
                             <input type="text" class="form-control" ng-model="assignment.courseLink">
+                            <br>
+                            <br>
+                            <br>
                         </ul>
-                        <button ng-click="editAssignments(assignment)" class="btn btn-success">Submit Edit</button>
-                        <br>
                     </li>
-                </ul>
             </div>
-
+            <div class="col-sm-4"></div>
         </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                <button ng-click="editAssignments(assignment)" class="btn btn-success">Submit Edit</button>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+        <br>
+        <br>
+        </ul>
     </div>
 </div>
