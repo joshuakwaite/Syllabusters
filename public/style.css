@@ -1,8 +1,6 @@
 body {
     background-color: #1AB0CC;
-    /*    margin: 30px 0px;*/
     font-family: "Quicksand";
-    /*    position: fixed;*/
 }
 
 .navbar-default .navbar-nav > li.dropdown:hover > a,
@@ -12,7 +10,7 @@ body {
     color: rgb(85, 85, 85);
 }
 
-li.dropdown:hover > .dropdown-menu {
+li.dropdown:hover (min-width: 767px) > .dropdown-menu {
     display: block;
     z-index: -1
 }
@@ -60,10 +58,6 @@ div {
     font-family: "Quicksand";
 }
 
-.syllabusInput {
-    margin-top: 50pt
-}
-
 .loginInput {
     margin-top: 30pt
 }
@@ -94,15 +88,6 @@ input {
     margin: 25px;
 }
 
-
-/*
-header {
-    background-color: white;
-    margin-top: -25pt;
-    height: 90pt;
-}
-*/
-
 .white-background {
     background-color: white;
     min-height: 70px;
@@ -124,12 +109,11 @@ th {
     background-color: #003E6F;
     position: absolute;
     min-width: 165px;
-    /*    margin-top: 80px*/
     top: inherit;
 }
 
 .newSyllabus {
-    margin-top: 30pt
+    margin-top: 50pt
 }
 
 .viewSyllabus {
@@ -148,18 +132,35 @@ th {
     margin-top: 45pt
 }
 
-
-/*
-.nav-tabs li {
-    border: 1px solid white;
-    border-radius: 6px;
-    padding-right: 2px;
-    margin-right: 4px;
-}
-*/
-
 .logo-image {
     min-width: 200px;
     height: auto;
     max-width: 25%;
+}
+
+.addAssignment {
+    margin-top: 40pt
+}
+
+
+.edits {
+    text-align: center;
+}
+
+.edits1 {
+    text-align: center;
+    margin-bottom: 25pt;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0
+}
+
+.add1 {
+    margin-bottom: 30pt
+}
+
+select {
+    width: 100%
 }
