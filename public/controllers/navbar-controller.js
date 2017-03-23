@@ -1,28 +1,30 @@
 angular.module("scotchApp")
 
-.controller("navbarController", ["$scope", "httpService", "syllabiService", "UserService", function ($scope, httpService, syllabiService, UserService) {
+.controller("navbarController", ["$scope", "$localStorage", "httpService", "syllabiService", "UserService", "authService", function ($scope, $localStorage, httpService, syllabiService, UserService, authService) {
 
     if (UserService.isAuthenticated() === true) {
     httpService.getSyllabi().then(function (response) {
         $scope.name = response.data;
         return response.data.name
     });
+        $scope.user = $localStorage.syllabusterUser;
+        console.log($scope.user)
     }
 
     $scope.$on('$locationChangeStart', function () {
         if (UserService.isAuthenticated() === true) {
             httpService.getSyllabi().then(function (response) {
-            $scope.name = response.data;
-            return response.data.name
-
-        });
+                $scope.name = response.data;
+                return response.data.name
+            });
+            $scope.user = $localStorage.syllabusterUser;
+            console.log($scope.user)
         }
     });
 
     $scope.populate = function (object) {
         syllabiService.saveCourse(object);
-        var objectTest = object;
-        $scope.test = objectTest.name
+        $scope.test = object.name
     };
 
     $scope.test = "Select Syllabus"

@@ -1,4 +1,4 @@
-var scotchApp = angular.module('scotchApp', ['ngRoute', 'scotchApp.Auth', 'ngSanitize']);
+var scotchApp = angular.module('scotchApp', ['ngRoute', 'scotchApp.Auth', 'ngSanitize', 'ngStorage']);
 
 scotchApp.config(function ($routeProvider) {
     $routeProvider

@@ -4,6 +4,7 @@ var User = require("../models/user");
 var jwt = require("jsonwebtoken");
 var config = require("../config");
 
+
 authRoutes.post("/login", function (req, res) {
 
     User.findOne({username: req.body.username}, function (err, user) {
