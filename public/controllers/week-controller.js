@@ -25,9 +25,9 @@ scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService
         function homework() {
 
             for (var i = 0; i < newVal.assignments.length; i++) {
-                var dayOfWeek = $filter('date')(data.assignments[i].startDate, "fullDate");
-                data.assignments[i].dayOfWeek = dayOfWeek;
-                $scope.work.push(data.assignments[i]);
+                var dayOfWeek = $filter('date')(newVal.assignments[i].startDate, "fullDate");
+                newVal.assignments[i].dayOfWeek = dayOfWeek;
+                $scope.work.push(newVal.assignments[i]);
             }
         }
         homework();
