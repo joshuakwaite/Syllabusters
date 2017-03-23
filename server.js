@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 
+mongoose.Promise = global.Promise;
 mongoose.connect(config.database, function (err) {
     if (err) {
         throw err;

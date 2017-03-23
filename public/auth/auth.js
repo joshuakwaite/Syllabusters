@@ -23,23 +23,23 @@ app.config(["$routeProvider", function ($routeProvider) {
         })
 }]);
 
-app.service("TokenService", [function () {
-    var userToken = "token";
+app.service("TokenService", ["$localStorage", function ($localStorage) {
 
     this.setToken = function (token) {
-        localStorage[userToken] = token;
+        $localStorage.userToken = token;
     };
 
     this.getToken = function () {
-        return localStorage[userToken];
+        return $localStorage.userToken;
     };
 
     this.removeToken = function () {
-        localStorage.removeItem(userToken);
+        delete $localStorage.userToken;
     };
 }]);
 
-app.service("UserService", ["$http", "$location", "TokenService", function ($http, $location, TokenService) {
+app.service("UserService", ["$http", "$location", "$localStorage", "TokenService", "syllabiService", function ($http, $location, $localStorage, TokenService, syllabiService) {
+
     this.signup = function (user) {
         return $http.post("/auth/signup", user);
     };
@@ -57,6 +57,10 @@ app.service("UserService", ["$http", "$location", "TokenService", function ($htt
 
     this.logout = function () {
         TokenService.removeToken();
+        delete $localStorage.syllabusterUser;
+        delete $localStorage.savedCourse;
+        delete $localStorage.syllabi;
+        syllabiService.savedCourse = null;
         $location.path("/login");
     };
 

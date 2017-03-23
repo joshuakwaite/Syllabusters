@@ -10,7 +10,7 @@ scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService
     $scope.syllabiService = syllabiService;
 
     $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
-        if (newVal !== undefined) {
+        if (newVal !== null) {
         $scope.todaysAssignments = [];
         $scope.dueSoon = [];
 

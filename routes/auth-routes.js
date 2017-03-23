@@ -4,6 +4,7 @@ var User = require("../models/user");
 var jwt = require("jsonwebtoken");
 var config = require("../config");
 
+
 authRoutes.post("/login", function (req, res) {
 
     User.findOne({username: req.body.username}, function (err, user) {
@@ -29,7 +30,8 @@ authRoutes.post("/signup", function (req, res) {
         if (err) return res.status(500).send(err);
         if (existingUser.length) return res.send({success: false, message: "That username is already taken."});
         else {
-            req.body.admin = false;
+            // delete req.body._id;
+            // delete req.body.__v;
             var newUser = new User(req.body);
             newUser.save(function (err, userObj) {
                 if (err) return res.status(500).send(err);
