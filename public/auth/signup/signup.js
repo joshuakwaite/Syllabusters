@@ -11,8 +11,7 @@ app.controller("SignupController", ["$scope", "$location", "UserService", functi
             UserService.signup(user).then(function (response) {
                 $location.path("/login");
             }, function (response) {
-                console.log(response);
-                alert(response.data);
+                alert(response);
             });
         }
     }

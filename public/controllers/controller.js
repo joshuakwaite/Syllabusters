@@ -17,7 +17,6 @@ scotchApp.controller('syllabusController',["$scope", "syllabiService", "$locatio
 
     $scope.addSyllabus = function(object) {
         syllabiService.saveSyllabus(object).then(function(response) {
-            console.log(response.data);
             $location.path("/input");
         });
     };

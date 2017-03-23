@@ -6,7 +6,7 @@ scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService
 
     $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
 
-        if (newVal !== undefined) {
+        if (newVal !== undefined || newVal !== null) {
 
         function getWeek(fromDate) {
             var sunday = new Date(fromDate.setDate(fromDate.getDate() - fromDate.getDay()))

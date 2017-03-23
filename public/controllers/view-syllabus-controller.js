@@ -14,7 +14,7 @@ app.controller("viewSyllabusController", ["$scope", "syllabiService", "$location
                 if (newVal.assignments[i]._id == assignment._id) {
                     newVal.assignments.splice([i], 1, assignment);
                     syllabiService.editSyllabus(newVal).then(function(response) {
-                        console.log(response)
+                        alert("Edit Successful")
                     });
                 }
             }

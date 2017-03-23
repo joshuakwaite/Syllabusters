@@ -4,7 +4,7 @@ angular.module("scotchApp")
         var self = this;
         var courseUrl = "/api/course/";
 
-        this.savedCourse = $localStorage.savedCourse || {};
+        this.savedCourse = $localStorage.savedCourse || null;
         this.syllabi = $localStorage.syllabi || [];
 
         // this.saveCourse = function (object) {
@@ -42,5 +42,8 @@ angular.module("scotchApp")
         this.putSyllabusAssignment = function (object) {
             return $http.put("/api/course/" + object._id, object)
         };
+        this.getAllSyllabi = function () {
+            return $http.get("/api/course/all")
+        }
 
     }]);

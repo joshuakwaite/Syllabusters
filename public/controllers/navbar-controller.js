@@ -9,16 +9,12 @@ angular.module("scotchApp")
         $scope.user = $localStorage.syllabusterUser;
     }
 
-    // $scope.$on('$locationChangeStart', function () {
-    //     if (UserService.isAuthenticated() === true) {
-    //         httpService.getSyllabi().then(function (response) {
-    //             $scope.name = response.data;
-    //             return response.data.name
-    //         });
-    //         $scope.user = $localStorage.syllabusterUser;
-    //         console.log($scope.user)
-    //     }
-    // });
+    $scope.$on('$locationChangeStart', function () {
+        if (UserService.isAuthenticated() === true) {
+            $scope.user = $localStorage.syllabusterUser;
+
+        }
+    });
 
     $scope.populate = function (object) {
         syllabiService.getOneSyllabus(object)

@@ -33,6 +33,10 @@ scotchApp.config(function ($routeProvider) {
         .when('/fullsyllabus', {
             templateUrl: 'pages/view-syllabus.html',
             controller: "viewSyllabusController"
+        })
+        .when('/addCourse', {
+            templateUrl: 'pages/add-course.html',
+            controller: "addCourseController"
         });
 });
 

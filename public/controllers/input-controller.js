@@ -7,11 +7,9 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
             object.objectType = object.objectType.toLowerCase();
         
         httpService.postAssignment(notCapitalizedObject).then(function(response) {
-            console.log(response.data)
         });
 
         httpService.getAssignments().then(function(response) {
-            console.log(response.data)
         })
 
     }

@@ -27,6 +27,14 @@ courseRoute.route("/")
 
     });
 
+courseRoute.route("/all")
+    .get(function (req, res) {
+        Course.find({}, function (err, course) {
+            if (err) return res.status(500).send(err);
+            res.send(course);
+        });
+    })
+
 courseRoute.delete("/:id", function (req, res) {
     Course.findOneAndRemove({_id: req.params.id, user: req.user._id},
         function (err, course) {
