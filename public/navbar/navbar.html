@@ -1,43 +1,59 @@
 <div class="container-fluid">
-    <div class="row white-background">
-        <div class="shadow text-center">
-            <img class="logo-image" src="/logo_v1.jpg">
+    <div class="topnav">
+        <div class="row white-background">
+            <div class="shadow text-center">
+                <img class="logo-image" src="/logo_v3.jpg">
+            </div>
         </div>
+
+
+
+        <nav class="navbar-fixed-top navbar-inverse">
+            <div class="container-fluid">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li ng-show="userService.isAuthenticated()" data-toggle="collapse" data-target=".navbar-collapse"><a href="#!/home">Home</a></li>
+                        <li ng-show="userService.isAuthenticated()" data-toggle="collapse" data-target=".navbar-collapse"><a href="#!/weekView">Week View</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" ng-show="userService.isAuthenticated()" data-toggle="collapse" data-target=".navbar-collapse">
+                            <a class="dropdown-toggle" data-toggle="dropdown">{{test}}<b class="caret" ></b></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="syllabus in name track by syllabus._id">
+                                    <a ng-click="populate(syllabus); current=syllabus.name">{{syllabus.name}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" data-toggle="collapse" data-target=".navbar-collapse">
+                            <a class="dropdown-toggle" data-toggle="dropdown" ng-show="userService.isAuthenticated()">Add/Edit<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#!/syllabus">Create Syllabus</a></li>
+                                <li><a href="#!/input">Add Assignment</a></li>
+                                <li><a href="#!/combine">Add to Syllabus</a></li>
+                                <li><a href="#!/fullsyllabus">Edit Assignments</a></li>
+                            </ul>
+                        </li>
+
+                        <li ng-hide="userService.isAuthenticated()" data-toggle="collapse" data-target=".navbar-collapse"><a href="#!/signup">Sign Up</a></li>
+                        <li ng-hide="userService.isAuthenticated()" data-toggle="collapse" data-target=".navbar-collapse"><a href="#!/login">Login</a></li>
+                        <li ng-show="userService.isAuthenticated()" data-toggle="collapse" data-target=".navbar-collapse"><a href="#!/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-    
-    
-    <nav class="navbar-fixed-top navbar-inverse">
-        <ul class="nav navbar-nav navbar-left">
-            <li ng-show="userService.isAuthenticated()"><a href="#!/home">Home</a></li>
-            <li ng-show="userService.isAuthenticated()"><a href="#!/weekView">Week View</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown" ng-show="userService.isAuthenticated()">
-                <a class="dropdown-toggle" data-toggle="dropdown">{{ syllabiService.savedCourse.name || 'Select a Course' }}<b class="caret" ></b></a>
-                <ul class="dropdown-menu">
-                    <li ng-repeat="syllabus in syllabiService.syllabi track by syllabus._id">
-                        <a ng-click="populate(syllabus); current=syllabus.name">{{syllabus.name}}</a>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li ng-if="!user.admin"><a href="#!/addCourse">Add Course</a></li>
-                    <li><a ng-if="user.admin" href="#!/syllabus">Create Syllabus</a></li>
 
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" ng-if="user.admin" data-toggle="dropdown" ng-show="userService.isAuthenticated()">Add<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#!/input">Add Assignment</a></li>
-                    <li><a href="#!/combine">Add to Syllabus</a></li>
-                    <li><a href="#!/fullsyllabus">Edit Assignments</a></li>
-                </ul>
-            </li>
 
-            <li ng-hide="userService.isAuthenticated()"><a href="#!/signup">Sign Up</a></li>
-            <li ng-hide="userService.isAuthenticated()"><a href="#!/login">Login</a></li>
-            <li ng-show="userService.isAuthenticated()"><a href="#!/logout">Logout</a></li>
-        </ul>
-    </nav>
+
+
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
     
     
-</div>
+    
