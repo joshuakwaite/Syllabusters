@@ -37,6 +37,10 @@ scotchApp.config(function ($routeProvider) {
         .when('/addCourse', {
             templateUrl: 'pages/add-course.html',
             controller: "addCourseController"
+        })
+        .when('/removeCourse', {
+            templateUrl: 'pages/remove-course.html',
+            controller: "addCourseController"
         });
 });
 

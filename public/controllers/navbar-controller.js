@@ -11,6 +11,7 @@ angular.module("scotchApp")
 
     $scope.$on('$locationChangeStart', function () {
         if (UserService.isAuthenticated() === true) {
+            syllabiService.getSyllabi();
             $scope.user = $localStorage.syllabusterUser;
 
         }
