@@ -44,6 +44,9 @@ angular.module("scotchApp")
         };
         this.getAllSyllabi = function () {
             return $http.get("/api/course/all")
-        }
+        };
+        this.putStudentOnSyllabus = function (syllabus) {
+            return $http.put("/api/course/addStudent/" + syllabus._id, syllabus)
+        };
 
     }]);

@@ -56,6 +56,15 @@ courseRoute.put("/:id", function (req, res) {
         });
 });
 
+courseRoute.put("/addStudent/:id", function (req, res) {
+    req.body.user.push(req.user);
+    Course.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, updatedCourse) {
+        if (err)
+            return res.status(500).send(err);
+        res.send(updatedCourse)
+    });
+});
+
 courseRoute.get("/:id", function (req, res) {
     Course.findOne({_id: req.params.id, user: req.user._id}, function (err, course) {
             if (err) return res.status(500).send(err);

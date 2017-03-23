@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-box text-center">
+                <h3 style="text-decoration: underline;">Remove Course</h3>
+                <div class="table-container">
+                    <table class="table text-left">
+                        <thead>
+                        <tr>
+                            <th>Course Name:</th>
+                            <th>Teacher:</th>
+                            <th>Start Date:</th>
+                            <th>End Date:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="syllabus in addedSyllabi | orderBy: '-startDate' track by syllabus._id">
+                            <td class="grabbable" ng-click="removeStudentFromCourse(syllabus)">{{syllabus.name}}</td>
+                            <td class="grabbable" ng-click="removeStudentFromCourse(syllabus)">{{syllabus.teacher}}</td>
+                            <td class="grabbable" ng-click="removeStudentFromCourse(syllabus)">{{syllabus.startDate | date: 'mediumDate'}}</td>
+                            <td class="grabbable" ng-click="removeStudentFromCourse(syllabus)">{{syllabus.endDate | date: 'mediumDate'}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

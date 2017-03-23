@@ -36,11 +36,11 @@ var courseSchema = new Schema ({
         weekNumber: Number,
         note: String
     }],
-    user: {
+    user: [{
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
-    }
+    }]
 });
 
 module.exports = mongoose.model("Course", courseSchema);
