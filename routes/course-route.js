@@ -7,9 +7,7 @@ var courseRoute = express.Router();
 
 courseRoute.route("/")
     .get(function (req, res) {
-        Course.find({user: req.user._id})
-            .populate("assignments")
-            .exec(function (err, course) {
+        Course.find({user: req.user._id}, function (err, course) {
                 if (err) return res.status(500).send(err);
                 res.send(course);
             });
@@ -28,6 +26,14 @@ courseRoute.route("/")
 
 
     });
+
+courseRoute.route("/all")
+    .get(function (req, res) {
+        Course.find({}, function (err, course) {
+            if (err) return res.status(500).send(err);
+            res.send(course);
+        });
+    })
 
 courseRoute.delete("/:id", function (req, res) {
     Course.findOneAndRemove({_id: req.params.id, user: req.user._id},
@@ -51,9 +57,7 @@ courseRoute.put("/:id", function (req, res) {
 });
 
 courseRoute.get("/:id", function (req, res) {
-    Course.findOne({_id: req.params.id, user: req.user._id})
-        .populate("assignments")
-        .exec(function (err, course) {
+    Course.findOne({_id: req.params.id, user: req.user._id}, function (err, course) {
             if (err) return res.status(500).send(err);
             res.send(course);
         });
@@ -61,3 +65,15 @@ courseRoute.get("/:id", function (req, res) {
 
 
 module.exports = courseRoute;
+
+
+//TO POPULATE
+
+// courseRoute.get("/:id", function (req, res) {
+//     Course.findOne({_id: req.params.id, user: req.user._id})
+//         .populate("assignments")
+//         .exec(function (err, course) {
+//             if (err) return res.status(500).send(err);
+//             res.send(course);
+//         });
+// });

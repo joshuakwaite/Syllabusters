@@ -23,7 +23,10 @@ var userSchema = new Schema ({
         type: String,
         required: true
     },
-    admin: Boolean
+    admin: {
+        type: Boolean,
+        default: false
+    }
 
 });
 

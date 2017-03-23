@@ -1,10 +1,10 @@
 angular.module("scotchApp")
 
-    .service("httpService", ["$http", function ($http) {
+    .service("httpService", ["$http", "syllabiService", "$localStorage", function ($http, syllabiService, $localStorage) {
 
         var url = "/";
         var adminUrl = "/admin";
-        var courseUrl = "/api/course";
+        var courseUrl = "/api/course/";
         var userUrl = "/user";
         var assignmentUrl = "/api/assignment";
 
@@ -17,23 +17,26 @@ angular.module("scotchApp")
         this.removeUser = function (object) {
             return $http.delete(url + "/" + object._id)
         };
-        this.getSyllabi = function () {
-            return $http.get(courseUrl);
-
-        };
-        this.getOneSyllabus = function (object) {
-            return $http.get("/api/course/" + object._id)
-        };
-        this.saveSyllabus = function (syllabus) {
-            return $http.post("/api/course", syllabus)
-        };
-        this.editSyllabus = function (object) {
-            return $http.put("/api/course/" + object._id, object)
-        };
-
-        this.putSyllabusAssignment = function (object) {
-            return $http.put("/api/course/" + object._id, object)
-        };
+        // this.getSyllabi = function () {
+        //     return $http.get(courseUrl).then(function(response) {
+        //         $localStorage.syllabi = response.data;
+        //         syllabiService.syllabi = response.data;
+        //         return response
+        //     });
+        // };
+        // this.getOneSyllabus = function (object) {
+        //     return $http.get("/api/course/" + object._id)
+        // };
+        // this.saveSyllabus = function (syllabus) {
+        //     return $http.post("/api/course", syllabus)
+        // };
+        // this.editSyllabus = function (object) {
+        //     return $http.put("/api/course/" + object._id, object)
+        // };
+        //
+        // this.putSyllabusAssignment = function (object) {
+        //     return $http.put("/api/course/" + object._id, object)
+        // };
 
         //ASSIGNMENT HTTPS//
         this.getAssignments = function() {

@@ -1,8 +1,8 @@
 angular.module("scotchApp")
-    .controller("modalController", ["$scope", "httpService", function ($scope, httpService) {
+    .controller("modalController", ["$scope", "syllabiService", function ($scope, syllabiService) {
 
         $scope.Monday = function (object) {
-            httpService.getOneSyllabus(object)
+            syllabiService.getOneSyllabus(object)
         }
 
 

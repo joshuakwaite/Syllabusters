@@ -34,11 +34,11 @@
                             <li ng-if="assignment.description">Assignment Description: {{assignment.description}}</li>
                             <input ng-if="assignment.description" type="text" class="form-control" ng-model="assignment.description">
 
-                            <li>Assignment Due Date: {{assignment.dueDate}}</li>
-                            <input type="date" class="form-control" ng-model="assignment.dueDate">
+                            <li>Assignment Due Date: {{assignment.dueDate | date: 'mediumDate'}}</li>
+                            <input type="date" class="form-control">
 
-                            <li>Assignment Start Date: {{assignment.startDate}}</li>
-                            <input type="date" class="form-control" ng-model="assignment.startDate">
+                            <li>Assignment Start Date: {{assignment.startDate | date: 'mediumDate'}}</li>
+                            <input type="date" class="form-control">
 
                             <li>Assignment link: {{assignment.courseLink}}</li>
                             <input type="text" class="form-control" ng-model="assignment.courseLink">

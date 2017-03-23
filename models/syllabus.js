@@ -28,7 +28,9 @@ var courseSchema = new Schema ({
         dayInWeek: Number,
         description: String,
         dueDate: Date,
-        startDate: Date
+        startDate: Date,
+        notes: String,
+        completed: Boolean
     }],
     weekNotes: [{
         weekNumber: Number,
