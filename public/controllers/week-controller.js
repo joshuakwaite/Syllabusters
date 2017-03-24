@@ -1,6 +1,6 @@
 var scotchApp = angular.module("scotchApp");
 
-scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService", "$location", "$filter", function ($scope, httpService, syllabiService, $location, $filter) {
+scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService", "$location", "$filter", "$sce", function ($scope, httpService, syllabiService, $location, $filter, $sce) {
 
     $scope.syllabiService = syllabiService;
 
@@ -34,6 +34,12 @@ scotchApp.controller('weekController', ["$scope", "httpService", "syllabiService
             }
     }, true);
 
+
+    $scope.openedModal = function (object) {
+        httpService.getUnfurl(object).then(function (response) {
+            $scope.test = $sce.trustAsHtml(response.data.html);
+        })
+    };
 
 
 

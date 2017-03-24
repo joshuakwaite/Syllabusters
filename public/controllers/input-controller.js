@@ -9,6 +9,7 @@ scotchApp.controller('inputController', ["httpService", "syllabiService", "$scop
         httpService.postAssignment(object).then(function(response) {
             httpService.getAssignments().then(function(response) {
                 alert("Assignment added successfully!")
+                $scope.selected = {}
             })
         });
 
