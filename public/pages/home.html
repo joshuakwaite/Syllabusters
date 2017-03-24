@@ -128,8 +128,8 @@
                                         <tr>
                                             <th>Type:</th>
                                             <th>Name:</th>
-                                            <th>Start Date:</th>
                                             <th>Due Date:</th>
+                                            <th>Start Date:</th>
                                             <th>Notes:</th>
                                             <th class="zero"></th>
                                         </tr>
@@ -145,11 +145,12 @@
                                                 {{assignment.objectName}}
                                             </td>
                                             <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
-                                                ng-click="openedModal(assignment.courseLink)">{{assignment.startDate | date: 'mediumDate'}}
-                                            </td>
-                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
                                                 ng-click="openedModal(assignment.courseLink)">{{assignment.dueDate | date: 'mediumDate'}}
                                             </td>
+                                            <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
+                                                ng-click="openedModal(assignment.courseLink)">{{assignment.startDate | date: 'mediumDate'}}
+                                            </td>
+
                                             <td data-toggle="modal" class="grabbable" data-target="#myModal{{assignment._id}}"
                                                 ng-click="openedModal(assignment.courseLink)">{{assignment.note}}
                                             </td>
