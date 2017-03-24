@@ -36,6 +36,9 @@ scotchApp.config(function ($routeProvider) {
         .when('/removeCourse', {
             templateUrl: 'pages/remove-course.html',
             controller: "addCourseController"
+        })
+        .otherwise({
+            redirect: "/home"
         });
 });
 

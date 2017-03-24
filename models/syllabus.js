@@ -5,8 +5,7 @@ var courseSchema = new Schema ({
 
     name: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     startDate: {
         type: Date,

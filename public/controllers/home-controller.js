@@ -1,7 +1,7 @@
 var scotchApp = angular.module("scotchApp");
 
 
-scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService', '$sce', '$filter', function ($scope, httpService, syllabiService, $sce, $filter) {
+scotchApp.controller('homeController', ['$scope', '$localStorage', '$location', 'httpService', 'syllabiService', '$sce', '$filter', function ($scope, $localStorage, $location, httpService, syllabiService, $sce, $filter) {
 
     $scope.selected = "";
 
@@ -9,7 +9,14 @@ scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService
     $scope.dueSoon = [];
     $scope.syllabiService = syllabiService;
 
+    $scope.user = $localStorage.syllabusterUser;
+
+
     $scope.$watch('syllabiService.savedCourse', function (newVal, oldVal) {
+
+        $scope.user = $localStorage.syllabusterUser;
+
+
         if (newVal !== null) {
         $scope.todaysAssignments = [];
         $scope.dueSoon = [];
@@ -42,6 +49,36 @@ scotchApp.controller('homeController', ['$scope', 'httpService', 'syllabiService
         httpService.getUnfurl(object).then(function (response) {
             $scope.test = $sce.trustAsHtml(response.data.html);
         })
+    };
+
+
+    if ($scope.syllabiService.savedCourse === null) {
+
+        $('#selectCourseModal').modal('show')
+
+    }
+
+    $scope.selectedSyllabus = function (syllabus) {
+        syllabiService.savedCourse = syllabus;
+        $('#selectCourseModal').modal('hide')
+
+    };
+
+    $scope.addCourse = function () {
+
+        $('#selectCourseModal').modal('hide');
+
+        $("#selectCourseModal").on('hidden.bs.modal', function () {
+            if ($scope.user.admin === true) {
+                $location.path("/syllabus");
+                $scope.$apply();
+            } else {
+                $location.path("/addCourse");
+                $scope.$apply();
+            }
+
+        });
+
     };
 
 }]);
