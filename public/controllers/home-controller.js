@@ -59,7 +59,7 @@ scotchApp.controller('homeController', ['$scope', '$localStorage', '$location', 
     }
 
     $scope.selectedSyllabus = function (syllabus) {
-        syllabiService.savedCourse = syllabus;
+        syllabiService.getOneSyllabus(syllabus)
         $('#selectCourseModal').modal('hide')
 
     };

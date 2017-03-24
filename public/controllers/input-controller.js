@@ -1,16 +1,18 @@
 var scotchApp = angular.module("scotchApp")
-scotchApp.controller('inputController', ["httpService", "syllabiService", "$scope", function (httpService, syllabiService, $scope) {
+scotchApp.controller('inputController', ["httpService", "syllabiService", "$scope", "$location", function (httpService, syllabiService, $scope, $location) {
 
     $scope.types = ["Warmup", "Lesson", "Exercise", "Project", "Test"];
 
     $scope.addObject = function (object) {
             object.objectType = object.objectType.toLowerCase();
         
-        httpService.postAssignment(notCapitalizedObject).then(function(response) {
+        httpService.postAssignment(object).then(function(response) {
+            httpService.getAssignments().then(function(response) {
+                alert("Assignment added successfully!")
+            })
         });
 
-        httpService.getAssignments().then(function(response) {
-        })
+
 
     }
 

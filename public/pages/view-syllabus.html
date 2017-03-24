@@ -23,17 +23,17 @@
                             <li ng-if="assignment.description">Assignment Description: {{assignment.description}}</li>
                             <input ng-if="assignment.description" type="text" class="form-control" ng-model="assignment.description">
 
-                            <li>Assignment Due Date: {{assignment.dueDate | date: 'mediumDate'}}</li>
-                            <input type="date" class="form-control">
-
                             <li>Assignment Start Date: {{assignment.startDate | date: 'mediumDate'}}</li>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" ng-model="assignment.startDate">
+
+                            <li>Assignment Due Date: {{assignment.dueDate | date: 'mediumDate'}}</li>
+                            <input type="date" class="form-control" ng-model="assignment.dueDate">
 
                             <li>Assignment link: {{assignment.courseLink}}</li>
                             <input type="text" class="form-control" ng-model="assignment.courseLink">
-                            <br>
-                            <br>
-                            <br>
+
+                            <div class="text-center"><button ng-click="editAssignments(assignment)" class="btn btn-success" style="margin-top: 20px; margin-bottom: 20px;">Submit Edit</button></div>
+
                         </ul>
                     </li>
             </div>
@@ -42,7 +42,6 @@
         <div class="row">
             <div class="col-sm-5"></div>
             <div class="col-sm-2">
-                <button ng-click="editAssignments(assignment)" class="btn btn-success">Submit Edit</button>
             </div>
             <div class="col-sm-5"></div>
         </div>

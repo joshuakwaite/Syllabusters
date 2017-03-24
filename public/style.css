@@ -164,3 +164,15 @@ ul {
 select {
     width: 100%
 }
+
+.modal-title {
+    color: black;
+}
+
+.modal-body {
+    color: black;
+}
+
+.modal-footer {
+    color: black;
+}
