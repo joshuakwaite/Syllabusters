@@ -2,7 +2,7 @@
    <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 text-center">
-           <h3>All Assignments</h3>
+           <h3>All Created Assignments</h3>
             <input ng-model="searchText" placeholder="Search" style="margin: 15px; width: 300px;" class="form-control">
             <div class="row">
             <div class="col-xs-3 grabbable" ng-repeat="assignment in assignments | filter: searchText track by assignment._id"
@@ -16,7 +16,7 @@
             </div>
         </div>
             <div class="col-md-6 text-center">
-               <h3>Syllabus Assignments</h3>
+               <h3>Assignments on Your Selected Syllabus</h3>
                 <input ng-model="searchTextTwo" placeholder="Search" style="margin: 15px; width: 300px;" class="form-control">
                 <div class="row">
                     <div class="col-xs-3 grabbable" ng-repeat="syllAssignment in syllAssignments | filter: searchTextTwo track by syllAssignment._id"
