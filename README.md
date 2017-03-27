@@ -1,6 +1,6 @@
 To run this app, do the follow.
 
-1. clone the repo.
+1. Clone the repo.
 
 2. Navigate your terminal to the root folder of the project, and type 'npm install'.
 
