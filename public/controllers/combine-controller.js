@@ -65,9 +65,9 @@ app.controller("combineController", ["$scope", "httpService", "syllabiService", 
 
     $scope.selectedSyllAss = function (object) {
 
-        var syllabus = syllabiService.returnSavedCourse();
+        let syllabus = syllabiService.returnSavedCourse();
 
-        syllabus.assignments.splice(object, 1);
+        syllabus.assignments = syllabus.assignments.filter((element, index, arr) => element._id !== object._id);
 
         syllabiService.putSyllabusAssignment(syllabus).then(function (response) {
             populateRight();

@@ -46,6 +46,7 @@ scotchApp.controller('homeController', ['$scope', '$localStorage', '$location', 
 
 
     $scope.openedModal = function (object) {
+        $scope.test = null;
         httpService.getUnfurl(object).then(function (response) {
             $scope.test = $sce.trustAsHtml(response.data.html);
         })
